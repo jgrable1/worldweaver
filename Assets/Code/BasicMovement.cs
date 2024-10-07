@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
     private CharacterController controller;
+    private Rigidbody body;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed = 2.0f;
@@ -14,6 +15,7 @@ public class BasicMovement : MonoBehaviour
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
+        //body = gameObject.AddComponent<Rigidbody>();
     }
 
     void Update()
@@ -27,10 +29,10 @@ public class BasicMovement : MonoBehaviour
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        if (move != Vector3.zero)
+        /*if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
-        }
+        }*/
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -40,5 +42,8 @@ public class BasicMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        //transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 1f);
+
     }
 }

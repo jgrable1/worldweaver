@@ -7,7 +7,7 @@ public class BasicMovement : MonoBehaviour
     private CharacterController controller;
     private Rigidbody body;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    private bool groundedPlayer = true;
     private float playerSpeed = 5.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
@@ -18,40 +18,67 @@ public class BasicMovement : MonoBehaviour
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
-        body = gameObject.AddComponent<Rigidbody>();
+        body = gameObject.GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
+        /*groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
+        print(groundedPlayer);
+        print(transform.position.ToString("G"));*/
 
 
     
         Vector3 move = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
         move.y = 0;
         move.Normalize();
-        print(move.ToString("G"));
         controller.Move(move * playerSpeed * Time.deltaTime);
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            groundedPlayer = false;
         }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        
+        playerVelocity.y += gravityValue * Time.deltaTime;  
         controller.Move(playerVelocity * Time.deltaTime);
+        
 
         float h = lookSpeed * Input.GetAxis("Mouse X");
         float v = lookSpeed * Input.GetAxis("Mouse Y");
 
-        lookY = lookY + h;
-        lookX = lookX - v;
+        lookY += h;
+        if(Mathf.Abs(lookX - v) <= 50) lookX -= v;
 
         transform.localEulerAngles = new Vector3(lookX, lookY, 0);
     }
+
+    void OnCollisionStay(Collision collisionInfo) {
+        //print("Collision Stay Called on "+collisionInfo.gameObject.tag);
+        if (collisionInfo.gameObject.tag == "Ground") {
+            if(playerVelocity.y < 0) playerVelocity.y = 0f;
+            //print(playerVelocity.y);
+            groundedPlayer = true;
+        }
+    }
+    void onCollisionExit(Collision collisionInfo) {
+        print("Collision Exit Called on "+collisionInfo.gameObject.tag);
+        if (collisionInfo.gameObject.tag == "Ground") {
+            groundedPlayer = false;
+        }
+    }
+    void OnCollisionEnter(Collision collisionInfo) {
+        print("Collision Enter Called on "+collisionInfo.gameObject.tag);
+        if (collisionInfo.gameObject.tag == "Ground") {
+            if(playerVelocity.y < 0) playerVelocity.y = 0f;
+            print(playerVelocity.y);
+            groundedPlayer = true;
+        }
+    }
+
 }

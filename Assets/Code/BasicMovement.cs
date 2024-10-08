@@ -8,14 +8,17 @@ public class BasicMovement : MonoBehaviour
     private Rigidbody body;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 5.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
+    private float lookSpeed = 2.0f;
+    float lookX = 0f;
+    float lookY = 0f;
 
     private void Start()
     {
         controller = gameObject.AddComponent<CharacterController>();
-        //body = gameObject.AddComponent<Rigidbody>();
+        body = gameObject.AddComponent<Rigidbody>();
     }
 
     void Update()
@@ -26,13 +29,13 @@ public class BasicMovement : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
 
-        /*if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }*/
+    
+        Vector3 move = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
+        move.y = 0;
+        move.Normalize();
+        print(move.ToString("G"));
+        controller.Move(move * playerSpeed * Time.deltaTime);
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -43,7 +46,12 @@ public class BasicMovement : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 1f);
+        float h = lookSpeed * Input.GetAxis("Mouse X");
+        float v = lookSpeed * Input.GetAxis("Mouse Y");
 
+        lookY = lookY + h;
+        lookX = lookX - v;
+
+        transform.localEulerAngles = new Vector3(lookX, lookY, 0);
     }
 }

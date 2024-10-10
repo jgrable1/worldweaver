@@ -12,8 +12,9 @@ public class BasicMovement : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     private float lookSpeed = 2.0f;
-    float lookX = 0f;
-    float lookY = 0f;
+    private float lookX = 0f;
+    private float lookY = 0f;
+    private bool wallJump = false;
 
     private void Start()
     {
@@ -44,7 +45,10 @@ public class BasicMovement : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             groundedPlayer = false;
         }
-        
+        if (Input.GetButtonDown("WallJump")){
+            print("WallJump Toggled");
+            wallJump = !wallJump;
+        }
         playerVelocity.y += gravityValue * Time.deltaTime;  
         controller.Move(playerVelocity * Time.deltaTime);
         
@@ -61,8 +65,11 @@ public class BasicMovement : MonoBehaviour
     void OnCollisionStay(Collision collisionInfo) {
         //print("Collision Stay Called on "+collisionInfo.gameObject.tag);
         if (collisionInfo.gameObject.tag == "Ground") {
-            if(playerVelocity.y < 0) playerVelocity.y = 0f;
-            //print(playerVelocity.y);
+            if(playerVelocity.y < 0 && collisionInfo.contacts[0].normal.y > 0){
+                playerVelocity.y = 0f;
+                groundedPlayer = true;
+            }
+        } else if (collisionInfo.gameObject.tag == "Wall" && wallJump){
             groundedPlayer = true;
         }
     }
@@ -75,8 +82,11 @@ public class BasicMovement : MonoBehaviour
     void OnCollisionEnter(Collision collisionInfo) {
         print("Collision Enter Called on "+collisionInfo.gameObject.tag);
         if (collisionInfo.gameObject.tag == "Ground") {
-            if(playerVelocity.y < 0) playerVelocity.y = 0f;
-            print(playerVelocity.y);
+             if(playerVelocity.y < 0 && collisionInfo.contacts[0].normal.y > 0){
+                playerVelocity.y = 0f;
+                groundedPlayer = true;
+            } else if(collisionInfo.contacts[0].normal.y == 0 && wallJump) groundedPlayer = true;
+        } else if (collisionInfo.gameObject.tag == "Wall" && wallJump){
             groundedPlayer = true;
         }
     }

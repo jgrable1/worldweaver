@@ -13,7 +13,7 @@ public class Dash : MonoBehaviour
 
     void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
+        body = gameObject.GetComponent<Rigidbody>();
         player = gameObject.GetComponent<BasicMovement>();
         dashCooldown = 0.25f;
         dashLimit = 1.25f; // Can dash every dashLimit-0.25 seconds
@@ -30,9 +30,7 @@ public class Dash : MonoBehaviour
             dashCooldown += Time.deltaTime;
         }
 
-        if(dashing && dashCooldown < 0.25f){
-            controller.Move(dir * dashSpeed * Time.deltaTime);
-        } else if(dashing){
+        if(dashing && dashCooldown >= 0.25f){
             dashing = false;
             player.lockMovement = false;
         }
@@ -49,8 +47,11 @@ public class Dash : MonoBehaviour
                 dir.y = 0;
             }
             dir.Normalize();
-            controller.Move(dir * dashSpeed * Time.deltaTime);
+            
         }
         
+    }
+    void FixedUpdate(){
+        if(dashing) body.AddForce(dir*dashSpeed*10*(player.isGrounded()?0.6f:0.2f), ForceMode.Acceleration);
     }
 }

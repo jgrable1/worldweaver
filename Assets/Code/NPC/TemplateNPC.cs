@@ -63,13 +63,25 @@ public class TemplateNPC : MonoBehaviour
             if(walking){
                 randomMove = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized;
                 randomMove*=walkSpeed;
+                
                 float clampX = Mathf.Clamp(transform.position.x+randomMove.x, walkBounds[0], walkBounds[1]);
-                if(clampX == walkBounds[0]) randomMove.x = transform.position.x-walkBounds[0];
-                else if(clampX == walkBounds[1]) randomMove.x = walkBounds[1]-transform.position.x;
+                if(clampX == walkBounds[0]){
+                    if(transform.position.x < walkBounds[0]) randomMove.x = walkBounds[0] + 0.5f;
+                    else randomMove.x = transform.position.x-walkBounds[0];
+                } else if(clampX == walkBounds[1]){
+                    if(transform.position.x > walkBounds[1]) randomMove.x = walkBounds[1] - 0.5f;
+                    else randomMove.x = transform.position.x-walkBounds[1];
+                }
 
                 float clampZ = Mathf.Clamp(transform.position.z+randomMove.z, walkBounds[2], walkBounds[3]);
-                if(clampZ == walkBounds[2]) randomMove.z = transform.position.z-walkBounds[2];
-                else if(clampZ == walkBounds[3]) randomMove.z = walkBounds[3]-transform.position.z;
+                if(clampZ == walkBounds[2]){
+                    if(transform.position.z < walkBounds[2]) randomMove.z = walkBounds[2] + 0.5f;
+                    else randomMove.z = transform.position.z-walkBounds[2];
+                } else if(clampZ == walkBounds[3]){
+                    if(transform.position.z > walkBounds[3]) randomMove.z = walkBounds[3] - 0.5f;
+                    else randomMove.z = transform.position.z-walkBounds[3];
+                }
+
                 transform.rotation = Quaternion.LookRotation(randomMove);
             }
         }

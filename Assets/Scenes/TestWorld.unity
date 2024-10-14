@@ -1757,8 +1757,10 @@ GameObject:
   - component: {fileID: 1603932511}
   - component: {fileID: 1603932515}
   - component: {fileID: 1603932516}
+  - component: {fileID: 1603932517}
+  - component: {fileID: 1603932518}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,6 +1865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941ca6bcf075c6b4a8afdeb262e74659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockMovement: 0
+  lockCamera: 0
 --- !u!54 &1603932516
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1890,6 +1894,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!143 &1603932517
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603932509}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1603932518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603932509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084ccf2066609754089afbf94797b4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1646467563
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,54 +8,57 @@ public class BasicMovement : MonoBehaviour
     private Rigidbody body;
     private Vector3 playerVelocity;
     private bool groundedPlayer = true;
-    private float playerSpeed = 5.0f;
+    public float playerSpeed = 5.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     private float lookSpeed = 2.0f;
     private float lookX = 0f;
     private float lookY = 0f;
     private bool wallJump = false;
+    public bool lockMovement = false;
+    public bool lockCamera = false;
 
-    private void Start()
-    {
-        controller = gameObject.AddComponent<CharacterController>();
+    private void Start(){
+        controller = gameObject.GetComponent<CharacterController>();
         body = gameObject.GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
+    void Update(){
+        if(!lockMovement){
+            // Basic WASD Movement
+            Vector3 move = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
+            move.y = 0;
+            move.Normalize();
+            controller.Move(move * playerSpeed * Time.deltaTime);
 
-        // Basic WASD Movement
-        Vector3 move = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
-        move.y = 0;
-        move.Normalize();
-        controller.Move(move * playerSpeed * Time.deltaTime);
+            // Jump
+            if (Input.GetButtonDown("Jump") && groundedPlayer)
+            {
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                groundedPlayer = false;
+            }
 
-        // Jump
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            groundedPlayer = false;
-        }
-
-        // Toggle Wall Jump
-        if (Input.GetButtonDown("WallJump")){
-            print("WallJump Toggled");
-            wallJump = !wallJump;
+            // Toggle Wall Jump
+            if (Input.GetButtonDown("WallJump")){
+                print("WallJump Toggled");
+                wallJump = !wallJump;
+            }
         }
 
         // Gravity
         playerVelocity.y += gravityValue * Time.deltaTime;  
         controller.Move(playerVelocity * Time.deltaTime);
         
-        // Camera Movement
-        float h = lookSpeed * Input.GetAxis("Mouse X");
-        float v = lookSpeed * Input.GetAxis("Mouse Y");
+        if(!lockCamera){
+            // Camera Movement
+            float h = lookSpeed * Input.GetAxis("Mouse X");
+            float v = lookSpeed * Input.GetAxis("Mouse Y");
 
-        lookY += h;
-        if(Mathf.Abs(lookX - v) <= 50) lookX -= v;
+            lookY += h;
+            if(Mathf.Abs(lookX - v) <= 50) lookX -= v;
 
-        transform.localEulerAngles = new Vector3(lookX, lookY, 0);
+            transform.localEulerAngles = new Vector3(lookX, lookY, 0);
+        }
     }
 
     void OnCollisionStay(Collision collisionInfo) {

@@ -59,6 +59,10 @@ public class BasicMovement : MonoBehaviour
 
             transform.localEulerAngles = new Vector3(lookX, lookY, 0);
         }
+
+        if(transform.position.y < -50){
+            transform.position = new Vector3(10, 10, 10);
+        }
     }
 
     void OnCollisionStay(Collision collisionInfo) {

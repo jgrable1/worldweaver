@@ -41,9 +41,9 @@ public class TemplateNPC : MonoBehaviour
                 transform.position += randomMove*Time.deltaTime;
             }
             walkTimer+=Time.deltaTime;
-            Vector3 playerDir = player.transform.position-transform.position;
-            playerDir.y = 0;
-            tmp.transform.rotation = Quaternion.LookRotation(-playerDir);
+            //Vector3 playerDir = player.transform.position-transform.position;
+            //playerDir.y = 0;
+            tmp.transform.LookAt(player.transform);
         }
         
 
@@ -54,7 +54,7 @@ public class TemplateNPC : MonoBehaviour
             Vector3 playerDir = player.transform.position-transform.position;
             playerDir.y = 0;
             transform.rotation = Quaternion.LookRotation(-playerDir);
-            tmp.transform.rotation = Quaternion.LookRotation(-playerDir);
+            tmp.transform.LookAt(player.transform);
         }
 
         if(walkTimer >= walkWait){

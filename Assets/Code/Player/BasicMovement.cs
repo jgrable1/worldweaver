@@ -7,24 +7,17 @@ public class BasicMovement : MonoBehaviour
     private Rigidbody body;
     private Transform attachedCamera;
     private Vector3 playerVelocity;
-    private float verticalVelocity;
-    private bool groundedPlayer = true;
-    public float playerSpeed = 5.0f;
-    private float jumpHeight = 1.0f;
-    private float lookSpeed = 2.0f;
-    private float lookX = 0f;
-    private float lookY = 0f;
-    private bool wallJump = false;
-    public bool lockMovement = false;
-    public bool lockCamera = false;
     public LayerMask ground;
     private RaycastHit terrainHit;
+    private bool wallJump, groundedPlayer, walking;
+    public float playerSpeed = 5.0f;
+    private float lookX, lookY, lookSpeed = 0f;
+    public bool lockMovement, lockCamera = false;
 
     private void Start(){
-        //controller = gameObject.GetComponent<CharacterController>();
         body = gameObject.GetComponent<Rigidbody>();
         attachedCamera = gameObject.transform.GetChild(1);
-        //body.drag = playerSpeed;
+        lookSpeed = 2f;
     }
 
     void Update(){
@@ -32,6 +25,7 @@ public class BasicMovement : MonoBehaviour
             // Basic WASD Movement
             playerVelocity = (transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical")).normalized;
             playerVelocity.y = 0;
+            walking = playerVelocity != Vector3.zero;
 
             // Jump
             if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -80,7 +74,8 @@ public class BasicMovement : MonoBehaviour
         } else return false;
     }
 
-    public bool isGrounded(){ return groundedPlayer;}
+    public bool IsGrounded(){ return groundedPlayer;}
+    public bool IsWalking(){ return walking;}
 
     /*void OnCollisionStay(Collision collisionInfo) {
         //print("Collision Stay Called on "+collisionInfo.gameObject.tag);

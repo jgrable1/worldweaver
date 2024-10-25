@@ -52,6 +52,6 @@ public class Dash : MonoBehaviour
         
     }
     void FixedUpdate(){
-        if(dashing) body.AddForce(dir*dashSpeed*10*(player.isGrounded()?0.6f:0.2f), ForceMode.Acceleration);
+        if(dashing) body.AddForce(dir*dashSpeed*10*(player.IsGrounded()?0.6f:0.2f), ForceMode.Acceleration);
     }
 }

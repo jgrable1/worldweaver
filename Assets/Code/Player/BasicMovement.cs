@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
 {
+    public GameObject worldObject;
+    private World world;
     private Rigidbody body;
     private Transform attachedCamera;
     private Vector3 playerVelocity;
@@ -18,10 +20,11 @@ public class BasicMovement : MonoBehaviour
         body = gameObject.GetComponent<Rigidbody>();
         attachedCamera = gameObject.transform.GetChild(1);
         lookSpeed = 2f;
+        world = worldObject.GetComponent<World>();
     }
 
     void Update(){
-        if(!lockMovement){
+        if(world.CanMove()){
             // Basic WASD Movement
             playerVelocity = (transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical")).normalized;
             playerVelocity.y = 0;
@@ -40,7 +43,7 @@ public class BasicMovement : MonoBehaviour
             }
         }
 
-        if(!lockCamera){
+        if(world.CanLook()){
             // Camera Movement
             float h = lookSpeed * Input.GetAxis("Mouse X");
             float v = lookSpeed * Input.GetAxis("Mouse Y");
@@ -63,6 +66,7 @@ public class BasicMovement : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, lookY, 0);
 
         if(OnSlope()) playerVelocity = Vector3.ProjectOnPlane(playerVelocity, terrainHit.normal);
+        print(OnSlope());
 
         body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?1:0.2f), ForceMode.Acceleration);
     }

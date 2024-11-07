@@ -17,12 +17,12 @@ public class TemplateNPC : MonoBehaviour
     // WalkBounds: [x1, x2, z1, z2] x1 < x2, z1 < z2
     protected float[] walkBounds;
     private Vector3 randomMove;
+    [SerializeField]
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         tmp = GetComponentInChildren<TextMeshPro>();
-        //player = GameObject.FindWithTag("Player");
     }
 
     void DisplayDialogue(string s, bool cont){
@@ -36,6 +36,7 @@ public class TemplateNPC : MonoBehaviour
             print("Trying again to find Player");
             player = GameObject.FindWithTag("Player");
         }
+        Vector3 playerDir = transform.position-player.transform.position;
         if(interactStage == 0){
             if(walking){
                 transform.position += randomMove*Time.deltaTime;
@@ -43,7 +44,7 @@ public class TemplateNPC : MonoBehaviour
             walkTimer+=Time.deltaTime;
             //Vector3 playerDir = player.transform.position-transform.position;
             //playerDir.y = 0;
-            tmp.transform.LookAt(player.transform);
+            tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
         
 
@@ -51,10 +52,8 @@ public class TemplateNPC : MonoBehaviour
             interactStage++;
             if(interactStage >= dialogue.Length) interactStage = 0;
             DisplayDialogue(dialogue[interactStage], interactStage != 0);
-            Vector3 playerDir = player.transform.position-transform.position;
-            playerDir.y = 0;
-            transform.rotation = Quaternion.LookRotation(-playerDir);
-            tmp.transform.LookAt(player.transform);
+            transform.rotation = Quaternion.LookRotation(playerDir);
+            tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
 
         if(walkTimer >= walkWait){

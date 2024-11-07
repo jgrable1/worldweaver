@@ -62,7 +62,7 @@ public class World : MonoBehaviour
     public void ChangeStaminaConsumption(float change){staminaConsumption += change;}
 
     public void RestrictMovement(bool restrict, string source){
-        print(source+ " disabling movement.");
+        print(source+ " "+(restrict?"dis":"en")+"abling movement.");
         if(canMove && restrict){
             canMove = false;
             moveRestrictor.Add(source);

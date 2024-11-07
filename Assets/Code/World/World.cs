@@ -8,6 +8,8 @@ public class World : MonoBehaviour
     private List<string> moveRestrictor, lookRestrictor;
     [SerializeField]
     private TMP_Text notificationText;
+    [SerializeField]
+    private TMP_Text instructions;
     private float notifWait, timer;
     void Start()
     {
@@ -15,6 +17,8 @@ public class World : MonoBehaviour
         canLook = true;
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
+        //notificationText.transform.position = new Vector3((Screen.width/2)+200, (-Screen.height/2)+50, 0);
+        //instructions.transform.position = new Vector3((-Screen.width/2), (Screen.height/2), 0);
     }
 
     void Update()
@@ -22,17 +26,17 @@ public class World : MonoBehaviour
         if(notifUse){
             if(notifOpen){
                 if(timer <= notifWait){
-                    print(notificationText.transform.position.x);
-                    if(notificationText.transform.position.x > 540){
-                        notificationText.transform.Translate(new Vector3(-200, 0, 0)*Time.deltaTime);
+                    //print(notificationText.transform.position.x);
+                    if(notificationText.transform.position.x > (Screen.width)-(Screen.width/8)){
+                        notificationText.transform.Translate(new Vector3(-(Screen.width/4), 0, 0)*Time.deltaTime);
                     } else{
                         //notificationText.transform.position.x = 220;
                         timer += Time.deltaTime;
                     }
                 } else notifOpen = false;
             } else{
-                if(notificationText.transform.position.x < 740){
-                        notificationText.transform.Translate(new Vector3(200, 0, 0)*Time.deltaTime);
+                if(notificationText.transform.position.x < (Screen.width)+(Screen.width/8)){
+                        notificationText.transform.Translate(new Vector3((Screen.width/4), 0, 0)*Time.deltaTime);
                 } else{
                     //notificationText.transform.position.x = 420;
                     notifUse = false;

@@ -66,7 +66,7 @@ public class BasicMovement : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, lookY, 0);
 
         if(OnSlope()) playerVelocity = Vector3.ProjectOnPlane(playerVelocity, terrainHit.normal);
-        print(OnSlope());
+        // print(OnSlope());
 
         body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?1:0.2f), ForceMode.Acceleration);
     }

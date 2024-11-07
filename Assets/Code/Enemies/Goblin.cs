@@ -1,0 +1,21 @@
+/*using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Goblin : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        tmp = GetComponentInChildren<TextMeshPro>();
+
+        dialogue = new string[] {"Talk (E)", "Grrrrrrr"};
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}*/

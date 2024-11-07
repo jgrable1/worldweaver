@@ -15,14 +15,12 @@ public class BasicMovement : MonoBehaviour
     public float playerSpeed = 5.0f;
     private float lookX, lookY, lookSpeed = 0f;
     public bool lockMovement, lockCamera = false;
-
     private void Start(){
         body = gameObject.GetComponent<Rigidbody>();
         attachedCamera = gameObject.transform.GetChild(1);
         lookSpeed = 2f;
         world = worldObject.GetComponent<World>();
     }
-
     void Update(){
         if(world.CanMove()){
             // Basic WASD Movement
@@ -66,7 +64,6 @@ public class BasicMovement : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, lookY, 0);
 
         if(OnSlope()) playerVelocity = Vector3.ProjectOnPlane(playerVelocity, terrainHit.normal);
-        print(OnSlope());
 
         body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?1:0.2f), ForceMode.Acceleration);
     }
@@ -110,5 +107,4 @@ public class BasicMovement : MonoBehaviour
             groundedPlayer = true;
         }
     }*/
-
 }

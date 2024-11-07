@@ -11,6 +11,8 @@ public class BasicItem : MonoBehaviour
     [SerializeField]
     public GameObject inventoryObject;
     [SerializeField]
+    public int heal;
+    [SerializeField]
     private Sprite sprite;
     private Inventory inventory;
     private bool collected = false;
@@ -28,7 +30,15 @@ public class BasicItem : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player" && !collected){
             collected = true;
-            if(inventory.AddItem(itemName, count, sprite)) Destroy(gameObject);
+            if(inventory.AddItem(itemName, count, sprite)){
+                Destroy(gameObject);
+                Transform player = other.transform;
+                while(player.gameObject.name != "Player"){
+                    player = player.transform.parent;
+                }
+                PlayerHP script = player.GetComponent<PlayerHP>();
+                script.PlayerHPUpdate(heal);
+            }
             else StartCoroutine(waiter());
         }
     }

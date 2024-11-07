@@ -66,8 +66,8 @@ public class Inventory : MonoBehaviour
             }
         }
         if(!foundSlot){
-            world.SendNotification("Inventory is Full!", 3.0f);
-        } else world.SendNotification("Obtained "+originalCount+" of "+name, 3.0f);
+            world.QueueNotification("Inventory is Full!", 3.0f);
+        } else world.QueueNotification("Obtained "+originalCount+" of "+name, 3.0f);
         return foundSlot;
     }
 

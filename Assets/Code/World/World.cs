@@ -4,25 +4,30 @@ using UnityEngine;
 using TMPro;
 public class World : MonoBehaviour
 {
-    private bool canMove, canLook, notifUse, notifOpen;
+    private bool canMove, canLook, notifUse, notifOpen, staminaUse, shownStaminaTip;
     private List<string> moveRestrictor, lookRestrictor;
+    private List<(string, float)> notificationQueue;
     [SerializeField]
     private TMP_Text notificationText;
     [SerializeField]
     private TMP_Text instructions;
-    private float notifWait, timer;
+    private float notifWait, timer, staminaConsumption;
+    
     void Start()
     {
+        staminaConsumption = -0.5f;
         canMove = true;
         canLook = true;
+        staminaUse = true;
+        shownStaminaTip = false;
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
+        notificationQueue = new List<(string, float)>();
         //notificationText.transform.position = new Vector3((Screen.width/2)+200, (-Screen.height/2)+50, 0);
         //instructions.transform.position = new Vector3((-Screen.width/2), (Screen.height/2), 0);
     }
 
-    void Update()
-    {
+    void Update(){
         if(notifUse){
             if(notifOpen){
                 if(timer <= notifWait){
@@ -42,8 +47,19 @@ public class World : MonoBehaviour
                     notifUse = false;
                 }
             }
+        } else{
+            if(notificationQueue.Count > 0) SendNextNotification();
         }
     }
+
+    public void LockStamina(bool restrict){
+        staminaUse = !restrict;
+        if(!staminaUse){
+            staminaConsumption = -1f;
+            if(!shownStaminaTip) QueueNotification("You ran out of stamina! You'll need to recover a little bit before you can use anymore.", 2.0f);
+        }
+    }
+    public void ChangeStaminaConsumption(float change){staminaConsumption += change;}
 
     public void RestrictMovement(bool restrict, string source){
         print(source+ " disabling movement.");
@@ -76,11 +92,17 @@ public class World : MonoBehaviour
 
     public bool CanMove() {return canMove;}
     public bool CanLook() {return canLook;}
+    public bool CanUseStamina() {return staminaUse;}
+    public float GetDeltaStamina() {return staminaConsumption;}
 
-    public void SendNotification(string notif, float waitTime){
-        notificationText.text = notif;
+    public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}
+    private void SendNextNotification(){
+        (string, float) notif = notificationQueue[0];
+        notificationText.text = notif.Item1;
         notifUse = true;
         notifOpen = true;
-        notifWait = waitTime;
+        notifWait = notif.Item2;
+        timer = 0.0f;
+        notificationQueue.RemoveAt(0);
     }
 }

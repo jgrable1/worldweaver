@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHP : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     private bool invincible = false;
     public int health;
-    public PlayerHPBar playerHPBar;
+    public float stamina;
+    public PlayerStatUI playerHPBar, playerStaminaBar;
     private int playerMaxHP = 10; // HP of the player
+    private float playerMaxStamina = 10.0f;
+    [SerializeField]
+    private World world;
     void Start()
     {
         // health = PlayerPrefs.GetInt("PlayerHP");
-        playerHPBar.updatePlayerHP(health);
+        playerStaminaBar.updateStat(stamina);
+        playerHPBar.updateStat(health);
+    }
+
+    void Update() {
+        PlayerStaminaUpdate(-world.GetDeltaStamina()*Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -20,7 +29,7 @@ public class PlayerHP : MonoBehaviour
             health = health + HP;
             if(health > playerMaxHP)
                 health = playerMaxHP;
-            playerHPBar.updatePlayerHP(health);
+            playerHPBar.updateStat(health);
             // PlayerPrefs.SetInt("PlayerHP", health);
             // PlayerPrefs.Save();
             if(HP < 0){
@@ -28,6 +37,15 @@ public class PlayerHP : MonoBehaviour
                 StartCoroutine(IFrames());
             }
         }
+    }
+
+    public void PlayerStaminaUpdate(float change){
+        stamina = stamina + change;
+        if(stamina > playerMaxStamina)
+            stamina = playerMaxStamina;
+        if(stamina <= 0.0f) world.LockStamina(true);
+        else if(stamina > 1.0f) world.LockStamina(false);
+        playerStaminaBar.updateStat(stamina);
     }
 
     IEnumerator IFrames(){

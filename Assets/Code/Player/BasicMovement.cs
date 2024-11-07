@@ -11,7 +11,7 @@ public class BasicMovement : MonoBehaviour
     private Vector3 playerVelocity;
     public LayerMask ground;
     private RaycastHit terrainHit;
-    private bool wallJump, groundedPlayer, walking;
+    private bool wallJump, groundedPlayer, walking, running;
     public float playerSpeed = 5.0f;
     private float lookX, lookY, lookSpeed = 0f;
     public bool lockMovement, lockCamera = false;
@@ -27,6 +27,28 @@ public class BasicMovement : MonoBehaviour
             playerVelocity = (transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical")).normalized;
             playerVelocity.y = 0;
             walking = playerVelocity != Vector3.zero;
+
+            if(Input.GetButton("Sprint") && groundedPlayer){
+                //print("Attempting to Sprint");
+                if(world.CanUseStamina()){
+                    if(!running && walking){
+                        world.ChangeStaminaConsumption(3.0f);
+                        running = true;
+                    } else if(running && !walking){
+                        world.ChangeStaminaConsumption(-3.0f);
+                        running = false;
+                    }
+                } else{
+                    //print("Stamina locked. Can't sprint");
+                    running = false;
+                }
+            } else if(running){
+                //print("Sprint key no longer pressed, ending sprint");
+                if(world.CanUseStamina()){
+                    world.ChangeStaminaConsumption(-3.0f);
+                }
+                running = false;
+            }
 
             // Jump
             if (Input.GetButtonDown("Jump") && groundedPlayer)
@@ -65,8 +87,9 @@ public class BasicMovement : MonoBehaviour
 
         if(OnSlope()) playerVelocity = Vector3.ProjectOnPlane(playerVelocity, terrainHit.normal);
         // print(OnSlope());
+        float runningMult = running?1.5f:1.0f;
 
-        body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?1:0.2f), ForceMode.Acceleration);
+        body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?runningMult:0.2f), ForceMode.Acceleration);
     }
 
     bool OnSlope(){

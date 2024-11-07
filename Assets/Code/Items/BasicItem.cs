@@ -36,7 +36,7 @@ public class BasicItem : MonoBehaviour
                 while(player.gameObject.name != "Player"){
                     player = player.transform.parent;
                 }
-                PlayerHP script = player.GetComponent<PlayerHP>();
+                PlayerStats script = player.GetComponent<PlayerStats>();
                 script.PlayerHPUpdate(heal);
             }
             else StartCoroutine(waiter());

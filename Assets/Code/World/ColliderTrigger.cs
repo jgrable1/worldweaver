@@ -7,7 +7,7 @@ public class ColliderTrigger : MonoBehaviour
         while(player.gameObject.name != "Player"){
             player = player.transform.parent;
         }
-            PlayerHP script = player.gameObject.GetComponent<PlayerHP>();
+            PlayerStats script = player.gameObject.GetComponent<PlayerStats>();
             script.PlayerHPUpdate(-1);
         }
 }

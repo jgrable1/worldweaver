@@ -109,8 +109,8 @@ SketchUpImporter:
   assetBundleVariant: 
   generateBackFace: 1
   mergeCoplanarFaces: 0
-  selectedNodes: 00000000010000000200000003000000
+  selectedNodes: 0000000001000000
   assetHash:
     serializedVersion: 2
-    Hash: deec1e7d82e550c68a475c4f34d2b91a
+    Hash: acc8b59c21ed5061633c0f34c5f71390
   fileUnit: 0

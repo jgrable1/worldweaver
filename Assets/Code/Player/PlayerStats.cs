@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
 
     // Update is called once per frame
     public void PlayerHPUpdate(int HP) {
-        if(!invincible){
+        if(!invincible || HP > 0){
             health = health + HP;
             if(health > playerMaxHP)
                 health = playerMaxHP;

@@ -19,9 +19,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Image spriteV;
     private Inventory inventory;
     private GameObject prefab;
+    private InventoryAction action;
 
     public GameObject highlight;
     public bool highlighted;
+    public int id;
 
     void Start() {
         inventory = transform.parent.parent.parent.gameObject.GetComponent<Inventory>();
@@ -32,11 +34,12 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public bool AddItem(string name, int count, Sprite sprite, GameObject prefab){
+    public bool AddItem(string name, int count, Sprite sprite, GameObject prefab, InventoryAction action){
         this.itemName = name;
         this.count = count;
         this.sprite = sprite;
         this.prefab = prefab;
+        this.action = action;
         this.empty = false;
         if(count > 32){
             count = 32;
@@ -64,8 +67,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             }
         } else{
             if(this.count+count <= 0){
+                itemName = null;
                 full = false;
                 empty = true;
+                int remainder = this.count+count;
                 this.count = 0;
                 this.sprite = null;
                 this.prefab = null;
@@ -73,9 +78,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 countText.enabled = false;
                 spriteV.sprite = this.sprite;
                 spriteV.enabled = false;
-                return 0;
+                return -remainder;
             } else{
                 this.count += count;
+                countText.text = this.count.ToString();
                 return 0;
             }
         }
@@ -86,6 +92,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public string GetName() {return itemName;}
     public Sprite GetSprite() {return sprite;}
     public GameObject GetPrefab() {return prefab;}
+    public InventoryAction GetAction() {return action;}
     public int GetCount() {return count;}
 
     public void OnPointerClick(PointerEventData eventData){

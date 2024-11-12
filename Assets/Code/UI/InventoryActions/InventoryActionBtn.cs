@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using TMPro;
 public class InventoryActionBtn : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField]
     private Inventory inventory;
     private GameObject highlight;
+    [SerializeField]
+    private TMP_Text label;
+    [SerializeField]
+    private bool allowRecipe;
     public bool highlighted;
     public InventoryAction action;
 
@@ -24,22 +28,30 @@ public class InventoryActionBtn : MonoBehaviour, IPointerClickHandler, IPointerE
         highlighted = false;
         highlight.SetActive(false);
     }
+    
+    public void ChangeLabel(string s) {label.text = s;}
+    private bool CanInteract() {
+        if(action == null) return false;
+        if(!allowRecipe && inventory.GetSelectedR() != null) return false;
+        if(allowRecipe && (inventory.GetSelected() == null && inventory.GetSelectedR() == null)) return false;
+        return true;
+    }
 
     public void OnPointerClick(PointerEventData eventData){
         if(eventData.button == PointerEventData.InputButton.Left){
-            if(action != null && inventory.GetSelected() != null) action.InventoryAct(inventory);
+            if(CanInteract()) action.InventoryAct(inventory);
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData){
-        if(action != null && inventory.GetSelected() != null){
+        if(CanInteract()){
             highlighted = true;
             highlight.SetActive(true);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData){
-        if(action != null && inventory.GetSelected() != null){
+        if(CanInteract()){
             highlighted = false;
             highlight.SetActive(false);
         }

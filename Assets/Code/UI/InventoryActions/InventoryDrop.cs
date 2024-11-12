@@ -14,6 +14,6 @@ public class InventoryDrop : InventoryAction
         BasicItem newItemObject = Instantiate(item.GetPrefab(), modifiedPosition, Quaternion.identity).GetComponent<BasicItem>();
         newItemObject.SetInventoryRef(inventory);
         newItemObject.prefab = item.GetPrefab();
-        item.AddCount(-item.GetCount());
+        inventory.DeleteItem();
     }
 }

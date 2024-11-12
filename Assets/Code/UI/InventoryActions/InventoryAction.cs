@@ -7,11 +7,12 @@ public class InventoryAction : ScriptableObject
 {
     protected bool canAct = true;
     protected int useCount = 0;
+    protected bool itemAction = true;
     
     public virtual void InventoryAct(Inventory inventory){
         // print("Base Inventory Action");
-        if(inventory.GetSelected().GetCount()-useCount >= 0){
+        if(itemAction && inventory.GetSelected().GetCount()-useCount >= 0){
             inventory.GetSelected().AddCount(-useCount);
-        } else canAct = false;
+        } else if(itemAction) canAct = false;
     }
 }

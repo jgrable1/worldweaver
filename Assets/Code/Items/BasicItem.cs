@@ -19,6 +19,8 @@ public class BasicItem : MonoBehaviour
     private bool collected = true;
     [SerializeField]
     public GameObject prefab;
+    [SerializeField]
+    public InventoryAction action;
     void Start()
     {
         //prefab = PrefabUtility.GetCorrespondingObjectFromOriginalSource(transform.gameObject);
@@ -43,7 +45,7 @@ public class BasicItem : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player" && !collected){
             collected = true;
-            if(inventory.AddItem(itemName, count, sprite, prefab)){
+            if(inventory.AddItem(itemName, count, sprite, prefab, action)){
                 Destroy(gameObject);
                 Transform player = other.transform;
                 while(player.gameObject.name != "Player"){

@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
 
     public GameObject inventory;
-    bool inventoryUp;
+    private bool inventoryUp;
     public GameObject worldObject;
     private World world;
     public ItemSlot[] slots;
@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     private TMP_Text selectedDescription, selectedName;
     [SerializeField]
     private Image selectedImage;
+    private ItemSlot selectedItem;
 
     private Dictionary<string, string> descriptions = new Dictionary<string, string>();
     void Start()
@@ -39,12 +40,12 @@ public class Inventory : MonoBehaviour
         Time.timeScale = (b ? 0 : 1);
     }
 
-    public bool AddItem(string name, int count, Sprite sprite){
+    public bool AddItem(string name, int count, Sprite sprite, GameObject prefab){
         bool foundSlot = false;
         int originalCount = count;
         for(int i = 0; i < slots.Length; i++){
             if(slots[i].IsEmpty()){
-                if(!slots[i].AddItem(name, count, sprite)){
+                if(!slots[i].AddItem(name, count, sprite, prefab)){
                     foundSlot = true;
                     break;
                 } else{
@@ -71,11 +72,13 @@ public class Inventory : MonoBehaviour
         return foundSlot;
     }
 
-    public void DescribeItem(string name, Sprite sprite){
+    public void DescribeItem(ItemSlot item){
         selectedImage.enabled = true;
-        selectedImage.sprite = sprite;
-        selectedDescription.text = descriptions[name];
-        selectedName.text = name;
+        selectedImage.sprite = item.GetSprite();
+        selectedDescription.text = descriptions[item.GetName()];
+        selectedName.text = item.GetName();
+        selectedItem = item;
+        print("Selected Item with prefab: "+GetSelected().GetPrefab().name);
     }
     public void DeselectLastSlot(){
         for(int i = 0; i < slots.Length; i++){
@@ -88,5 +91,13 @@ public class Inventory : MonoBehaviour
         selectedImage.enabled = false;
         selectedDescription.text = "";
         selectedName.text = "";
+        selectedItem = null;
+
+        transform.GetChild(0).GetChild(1).GetChild(3).GetComponent<InventoryActionBtn>().EndHighlight();
+        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().EndHighlight();
     }
+
+    public ItemSlot GetSelected() {return selectedItem;}
+    public World GetWorld() {return world;}
+    public bool InventoryActive() {return inventoryUp;}
 }

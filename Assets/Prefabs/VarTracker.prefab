@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationText: {fileID: 0}
   instructions: {fileID: 0}
+  player: {fileID: 0}

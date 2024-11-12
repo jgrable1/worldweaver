@@ -12,6 +12,8 @@ public class World : MonoBehaviour
     [SerializeField]
     private TMP_Text instructions;
     private float notifWait, timer, staminaConsumption;
+    [SerializeField]
+    private BasicMovement player;
     
     void Start()
     {
@@ -56,7 +58,10 @@ public class World : MonoBehaviour
         staminaUse = !restrict;
         if(!staminaUse){
             staminaConsumption = -1f;
-            if(!shownStaminaTip) QueueNotification("You ran out of stamina! You'll need to recover a little bit before you can use anymore.", 2.0f);
+            if(!shownStaminaTip){
+                QueueNotification("You ran out of stamina! You'll need to recover a little bit before you can use anymore.", 2.0f);
+                shownStaminaTip = true;
+            }
         }
     }
     public void ChangeStaminaConsumption(float change){staminaConsumption += change;}
@@ -94,6 +99,7 @@ public class World : MonoBehaviour
     public bool CanLook() {return canLook;}
     public bool CanUseStamina() {return staminaUse;}
     public float GetDeltaStamina() {return staminaConsumption;}
+    public BasicMovement GetPlayer() {return player;}
 
     public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}
     private void SendNextNotification(){

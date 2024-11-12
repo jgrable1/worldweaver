@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LimbAnimation : MonoBehaviour
+public class LegAnimation : MonoBehaviour
 {
     private BasicMovement player;
 

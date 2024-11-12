@@ -30,8 +30,7 @@ public class TemplateNPC : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {  
+    void Update(){
         if(player == null){
             print("Trying again to find Player");
             player = GameObject.FindWithTag("Player");
@@ -46,13 +45,14 @@ public class TemplateNPC : MonoBehaviour
             //playerDir.y = 0;
             tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
-        
 
         if (Input.GetButtonDown("Interact") && interactable){
             interactStage++;
             if(interactStage >= dialogue.Length) interactStage = 0;
             DisplayDialogue(dialogue[interactStage], interactStage != 0);
-            transform.rotation = Quaternion.LookRotation(playerDir);
+            Vector3 tempPlayerDir = playerDir;
+            tempPlayerDir.y = 0;
+            transform.rotation = Quaternion.LookRotation(tempPlayerDir);
             tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
 

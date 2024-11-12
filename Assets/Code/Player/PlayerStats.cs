@@ -23,7 +23,15 @@ public class PlayerStats : MonoBehaviour
         PlayerStaminaUpdate(-world.GetDeltaStamina()*Time.deltaTime);
     }
 
-    // Update is called once per frame
+    public void PlayerStaminaUpdate(float change){
+        stamina = stamina + change;
+        if(stamina > playerMaxStamina)
+            stamina = playerMaxStamina;
+        if(stamina <= 0.0f) world.LockStamina(true);
+        else if(stamina > 1.0f) world.LockStamina(false);
+        playerStaminaBar.updateStat(stamina);
+    }
+
     public void PlayerHPUpdate(int HP) {
         if(!invincible || HP > 0){
             health = health + HP;
@@ -38,16 +46,7 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-
-    public void PlayerStaminaUpdate(float change){
-        stamina = stamina + change;
-        if(stamina > playerMaxStamina)
-            stamina = playerMaxStamina;
-        if(stamina <= 0.0f) world.LockStamina(true);
-        else if(stamina > 1.0f) world.LockStamina(false);
-        playerStaminaBar.updateStat(stamina);
-    }
-
+    
     IEnumerator IFrames(){
         yield return new WaitForSeconds(3); // Can't take damage for 3 seconds.
         invincible = false;

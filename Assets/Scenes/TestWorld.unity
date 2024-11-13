@@ -224,6 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1429947691}
+  label: {fileID: 0}
+  allowRecipe: 0
   highlighted: 0
   action: {fileID: 0}
 --- !u!1 &345772253 stripped
@@ -498,6 +500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 1429947691}
+  label: {fileID: 0}
+  allowRecipe: 0
   highlighted: 0
   action: {fileID: 11400000, guid: 2fe93d84b6603054daab42e136587196, type: 2}
 --- !u!1001 &665323553
@@ -1010,6 +1014,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 345772257}
   m_SourcePrefab: {fileID: 100100000, guid: 49379b9494b5e864aa020a91b16c269f, type: 3}
+--- !u!114 &846488986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6440406093877758085, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+  m_PrefabInstance: {fileID: 81732838067211759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &946745834 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9183117662204618089, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
@@ -3067,6 +3082,10 @@ PrefabInstance:
       propertyPath: worldObject
       value: 
       objectReference: {fileID: 1969353879}
+    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
+      propertyPath: errorDisplay
+      value: 
+      objectReference: {fileID: 846488986}
     - target: {fileID: 1018373937508759194, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

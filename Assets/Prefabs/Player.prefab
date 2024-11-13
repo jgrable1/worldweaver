@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8373784155585700922}
-  - component: {fileID: 305118922362814039}
+  - component: {fileID: 1653334761460630922}
   m_Layer: 7
   m_Name: Arm1Joint
   m_TagString: Player
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4365741056980264543}
   m_Father: {fileID: 996490548512842661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &305118922362814039
+--- !u!114 &1653334761460630922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,11 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 335629373499753511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0c91c7db98af743839de96a7dd569e, type: 3}
+  m_Script: {fileID: 11500000, guid: f752a7733cc6e614f948ffeb4ce8c0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
-  degrees: 60
+  degrees: 30
   phase: 0
   right: 1
 --- !u!1 &380675995756713004
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 2976392403074125993}
   - component: {fileID: 2989825698092766732}
   - component: {fileID: 7501470595825906865}
-  - component: {fileID: 7742760064111178517}
+  - component: {fileID: 7836409479708240642}
   m_Layer: 7
   m_Name: Leg2
   m_TagString: Player
@@ -419,7 +419,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &7742760064111178517
+--- !u!114 &7836409479708240642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754844860809253303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0c91c7db98af743839de96a7dd569e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d22b3f857a4a9c44ba8fe641d8b4c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
@@ -571,13 +571,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5476715284696810758}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: -0.225, z: 0.5}
   m_LocalScale: {x: 0.2, y: 0.5, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8373784155585700922}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!33 &1728611431566361468
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 1371742135942889372}
   - component: {fileID: 5008278719127310294}
   - component: {fileID: 2138039519844575467}
-  - component: {fileID: 5908792318803713831}
+  - component: {fileID: 1153994495244895958}
   m_Layer: 7
   m_Name: Leg1
   m_TagString: Player
@@ -758,7 +758,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &5908792318803713831
+--- !u!114 &1153994495244895958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6046005436268951609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0c91c7db98af743839de96a7dd569e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d22b3f857a4a9c44ba8fe641d8b4c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
@@ -856,13 +856,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977382373769412081}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: -0.225, z: 0.5}
   m_LocalScale: {x: 0.19999999, y: 0.5, z: 0.20000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4006825256169311738}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!33 &504471057960623013
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -943,7 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4006825256169311738}
-  - component: {fileID: 2438667005320208583}
+  - component: {fileID: 5162755904478471081}
   m_Layer: 7
   m_Name: Arm2Joint
   m_TagString: Player
@@ -967,7 +967,7 @@ Transform:
   - {fileID: 6890513289339012095}
   m_Father: {fileID: 996490548512842661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2438667005320208583
+--- !u!114 &5162755904478471081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -976,10 +976,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8306533100128803559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0c91c7db98af743839de96a7dd569e, type: 3}
+  m_Script: {fileID: 11500000, guid: f752a7733cc6e614f948ffeb4ce8c0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1
-  degrees: 60
+  degrees: 30
   phase: 0
   right: 0

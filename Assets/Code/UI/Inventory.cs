@@ -28,6 +28,9 @@ public class Inventory : MonoBehaviour
         descriptions.Add("The Sphere", "Ancient artifact of Sir Ligma the 45th, grants 0.000005 additional speed.\n\n Try to prove me wrong.");
         descriptions.Add("Better Sphere", "Forged from multiple of Sir Limga the 45th's legacy, grants 0.000004 speed.");
         costs.Add("Better Sphere", "Costs 5 of The Sphere.");
+
+        for(int i = 0; i < slots.Length; i++) slots[i].id = i;
+        for(int i = 0; i < recipes.Length; i++) recipes[i].id = i;
     }
 
     // Update is called once per frame

@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: The Sphere
-  count: 5
+  count: 10
   inventoryObject: {fileID: 0}
   heal: 1
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 6754692286381045329}
+  action: {fileID: 0}

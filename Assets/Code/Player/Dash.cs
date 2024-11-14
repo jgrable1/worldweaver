@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-    private CharacterController controller;
     private Rigidbody body;
-    public GameObject playerObject;
+    [SerializeField]
     private BasicMovement player;
-    public GameObject worldObject;
+    [SerializeField]
     private World world;
     float dashCooldown, dashLimit, dashSpeed;
     bool dashing = false;
@@ -17,8 +16,6 @@ public class Dash : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody>();
-        player = playerObject.GetComponent<BasicMovement>();
-        world = worldObject.GetComponent<World>();
         dashCooldown = 0.25f;
         dashLimit = 1.25f; // Can dash every dashLimit-0.25 seconds
         dashSpeed = player.playerSpeed*6f; // Dash Speed = 6x current player walking speed

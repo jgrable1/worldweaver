@@ -18,7 +18,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     public Image spriteV;
     private Inventory inventory;
-    private GameObject prefab;
     private InventoryAction action;
 
     public GameObject highlight;
@@ -34,11 +33,10 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public bool AddItem(string name, int count, Sprite sprite, GameObject prefab, InventoryAction action){
+    public bool AddItem(string name, int count, Sprite sprite, InventoryAction action){
         this.itemName = name;
         this.count = count;
         this.sprite = sprite;
-        this.prefab = prefab;
         this.action = action;
         this.empty = false;
         if(count > 32){
@@ -73,7 +71,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 int remainder = this.count+count;
                 this.count = 0;
                 this.sprite = null;
-                this.prefab = null;
                 countText.text = "";
                 countText.enabled = false;
                 spriteV.sprite = this.sprite;
@@ -91,7 +88,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public bool IsFull() {return full;}
     public string GetName() {return itemName;}
     public Sprite GetSprite() {return sprite;}
-    public GameObject GetPrefab() {return prefab;}
     public InventoryAction GetAction() {return action;}
     public int GetCount() {return count;}
 

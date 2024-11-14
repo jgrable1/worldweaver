@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5070263134344303673}
-  - component: {fileID: 3542614640013211902}
+  - component: {fileID: 8867301396450413631}
   m_Layer: 0
   m_Name: VarTracker
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3542614640013211902
+--- !u!114 &8867301396450413631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3585448518606029865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c860ef2691efc4884946cfa89a8a1e, type: 3}
+  m_Script: {fileID: 11500000, guid: ed6e90b666634ae4caec06513cb288e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   notificationText: {fileID: 0}
   instructions: {fileID: 0}
   player: {fileID: 0}
+  prefabNames:
+  - The Sphere
+  - Better Sphere
+  - BasicEnemy
+  prefabsList:
+  - {fileID: 6754692286381045329, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
+  - {fileID: 6982615961788063049, guid: 6333ca23daaaafd4cb578ca6c634658e, type: 3}
+  - {fileID: 663655740545220860, guid: 031203d7d5a6903409da638eb4af0024, type: 3}

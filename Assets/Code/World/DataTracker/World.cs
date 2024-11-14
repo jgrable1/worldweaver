@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 public class World : MonoBehaviour
 {
     private bool canMove, canLook, notifUse, notifOpen, staminaUse, shownStaminaTip;
@@ -14,6 +16,13 @@ public class World : MonoBehaviour
     private float notifWait, timer, staminaConsumption;
     [SerializeField]
     private BasicMovement player;
+    private Dictionary<string, string> descriptions = new Dictionary<string, string>();
+    private Dictionary<string, (string, int)[]> costs = new Dictionary<string, (string, int)[]>();
+    [SerializeField]
+    private string[] prefabNames;
+    [SerializeField]
+    private GameObject[] prefabsList;
+    private Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
     
     void Start()
     {
@@ -25,6 +34,13 @@ public class World : MonoBehaviour
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
         notificationQueue = new List<(string, float)>();
+        ReadItemData("Assets/Data/ItemData.txt", true);
+        ReadItemData("Assets/Data/RecipeCosts.txt", false);
+        for(int i = 0; i < prefabNames.Length; i++){
+            prefabs.Add(prefabNames[i], prefabsList[i]);
+        }
+        prefabNames = null;
+        prefabsList = null;
         //notificationText.transform.position = new Vector3((Screen.width/2)+200, (-Screen.height/2)+50, 0);
         //instructions.transform.position = new Vector3((-Screen.width/2), (Screen.height/2), 0);
     }
@@ -100,8 +116,12 @@ public class World : MonoBehaviour
     public bool CanUseStamina() {return staminaUse;}
     public float GetDeltaStamina() {return staminaConsumption;}
     public BasicMovement GetPlayer() {return player;}
+    public string GetDescription(string itemName) {return descriptions[itemName];}
+    public (string, int)[] GetCosts(string itemName) {return costs[itemName];}
+    public GameObject GetPrefab(string name) {return prefabs[name];}
 
     public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}
+    
     private void SendNextNotification(){
         (string, float) notif = notificationQueue[0];
         notificationText.text = notif.Item1;
@@ -110,5 +130,48 @@ public class World : MonoBehaviour
         notifWait = notif.Item2;
         timer = 0.0f;
         notificationQueue.RemoveAt(0);
+    }
+
+    private void ReadItemData(string fileName, bool descriptions){
+        try{
+            StreamReader reader = new StreamReader(fileName);
+            string line;
+            line = reader.ReadLine();
+
+            if(descriptions){
+                string name, description;
+                while (line != null){
+                    name = line.Substring(0, line.IndexOf(";"));
+                    description = line.Substring(line.IndexOf(";")+2);
+                    // print("Looking for \\n in string");
+                    description = description.Replace("\\n", "\n");
+                    this.descriptions.Add(name, description);
+                    line = reader.ReadLine();
+                }
+            } else{
+                string remainder, curr;
+                List<(string, int)> list = new List<(string, int)>();
+                while (line != null){
+                    name = line.Substring(0, line.IndexOf(";"));
+                    remainder = line.Substring(line.IndexOf(";")+2);
+                    while(remainder != null){
+                        if(remainder.IndexOf(";") != -1){
+                            curr = remainder.Substring(0, remainder.IndexOf(";"));
+                            remainder = remainder.Substring(line.IndexOf(";")+2);
+                        } else {
+                            curr = remainder;
+                            remainder = null;
+                        }
+                        list.Add((curr.Substring(0, curr.Length-2), int.Parse(curr.Substring(curr.Length-2))));     
+                    }
+                    costs.Add(name, list.ToArray());
+                    list.Clear();
+                    line = reader.ReadLine();
+                }
+            }
+            
+        } catch(Exception e){
+            Debug.LogException(e, this);
+        }
     }
 }

@@ -6,14 +6,13 @@ using UnityEngine;
 public class InventoryDrop : InventoryAction
 {
     public override void InventoryAct(Inventory inventory){
-        ItemSlot item = inventory.GetSelected();
-        Vector3 modifiedPosition = inventory.GetWorld().GetPlayer().transform.position;
+        World world = inventory.GetWorld();
+        Vector3 modifiedPosition = world.GetPlayer().transform.position;
         modifiedPosition.y -= 0.5f;
         // Debug.Log("Attempting to drop "+item.GetName());
-        // Debug.Log("Using prefab: "+item.GetPrefab().name);
-        BasicItem newItemObject = Instantiate(item.GetPrefab(), modifiedPosition, Quaternion.identity).GetComponent<BasicItem>();
+        // Debug.Log("Using prefab: "+world.GetPrefab(item.GetName());
+        BasicItem newItemObject = Instantiate(world.GetPrefab(inventory.GetSelected().GetName()), modifiedPosition, Quaternion.identity).GetComponent<BasicItem>();
         newItemObject.SetInventoryRef(inventory);
-        newItemObject.prefab = item.GetPrefab();
         inventory.DeleteItem();
     }
 }

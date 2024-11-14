@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject inventory;
     private bool inventoryUp;
-    public GameObject worldObject;
+    [SerializeField]
     private World world;
     public ItemSlot[] slots;
     public RecipeSlot[] recipes;
@@ -20,15 +20,8 @@ public class Inventory : MonoBehaviour
     private int selectedRecipe;
     public InventoryAction craftingAction;
 
-    private Dictionary<string, string> descriptions = new Dictionary<string, string>();
-    private Dictionary<string, string> costs = new Dictionary<string, string>();
     void Start()
     {
-        world = worldObject.GetComponent<World>();
-        descriptions.Add("The Sphere", "Ancient artifact of Sir Ligma the 45th, grants 0.000005 additional speed.\n\n Try to prove me wrong.");
-        descriptions.Add("Better Sphere", "Forged from multiple of Sir Limga the 45th's legacy, grants 0.000004 speed.");
-        costs.Add("Better Sphere", "Costs 5 of The Sphere.");
-
         for(int i = 0; i < slots.Length; i++) slots[i].id = i;
         for(int i = 0; i < recipes.Length; i++) recipes[i].id = i;
     }
@@ -49,7 +42,7 @@ public class Inventory : MonoBehaviour
         Time.timeScale = (b ? 0 : 1);
     }
 
-    public bool AddItem(string name, int count, Sprite sprite, GameObject prefab, InventoryAction action){
+    public bool AddItem(string name, int count, Sprite sprite, InventoryAction action){
         bool foundSlot = false;
         int originalCount = count;
         int slotIndex = FindExistingSlot(name);
@@ -66,7 +59,7 @@ public class Inventory : MonoBehaviour
         if(!foundSlot){
             for(int i = 0; i < slots.Length; i++){
                 if(slots[i].IsEmpty()){
-                    if(!slots[i].AddItem(name, count, sprite, prefab, action)){
+                    if(!slots[i].AddItem(name, count, sprite, action)){
                         foundSlot = true;
                         break;
                     } else{
@@ -98,23 +91,34 @@ public class Inventory : MonoBehaviour
     public void DescribeItem(ItemSlot item){
         selectedImage.enabled = true;
         selectedImage.sprite = item.GetSprite();
-        selectedDescription.text = descriptions[item.GetName()];
+        selectedDescription.text = world.GetDescription(item.GetName());
         selectedName.text = item.GetName();
         selectedItem = item.id;
-        print("Selected Item with prefab: "+GetSelected().GetPrefab().name);
         selectedRecipe = -1;
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = item.GetAction();
     }
     public void DescribeCraft(RecipeSlot recipe){
         selectedImage.enabled = true;
         selectedImage.sprite = recipe.GetSprite();
-        selectedDescription.text = descriptions[recipe.GetName()]+"\n\n"+costs[recipe.GetName()];
+        selectedDescription.text = world.GetDescription(recipe.GetName())+"\n\n"+CostString(world.GetCosts(recipe.GetName()));
         selectedName.text = recipe.GetName();
         selectedRecipe = recipe.id;
         selectedItem = -1;
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel("Craft");
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = craftingAction;
     }
+
+    public string CostString((string, int)[] costs){
+        string result = "Costs ";
+        int curr = 0;
+        foreach((string a, int b) in costs){
+            if(curr+1 == costs.Length && curr != 0) result += "and ";
+            result += b+" "+a+", ";
+            curr++;
+        }
+        return result;
+    }
+
     public void DeselectLastSlot(){
         for(int i = 0; i < slots.Length; i++){
             if(slots[i].highlighted){

@@ -551,7 +551,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 353089666569211286}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 3712973794714202791}
   highlighted: 0
@@ -1637,7 +1636,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7928985040561999868}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 6687029521841648078}
   highlighted: 0
@@ -2519,7 +2517,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 3958619163962951527}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 5040157892260241104}
   highlighted: 0
@@ -3321,7 +3318,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7337273216351473666}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 4002910361615011313}
   highlighted: 0
@@ -4485,7 +4481,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 2500588646784623793}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 80672549932343087}
   highlighted: 0
@@ -6704,7 +6699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 3623767532593417320}
-  worldObject: {fileID: 0}
+  world: {fileID: 0}
   slots:
   - {fileID: 7714527976960102824}
   - {fileID: 910172331303814348}
@@ -7587,7 +7582,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1465641490930740553}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 3636347757274499066}
   highlighted: 0
@@ -7949,7 +7943,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1548963883503546456}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 5191558404530551525}
   highlighted: 0
@@ -7990,7 +7983,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 8.500015, y: 92.499855}
-  m_SizeDelta: {x: 185, y: 0}
+  m_SizeDelta: {x: 165, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3495092054165356775
 CanvasRenderer:
@@ -8408,7 +8401,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 752952265079929823}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 3652739081342118748}
   highlighted: 0
@@ -9382,7 +9374,6 @@ MonoBehaviour:
   spriteV: {fileID: 4519873173423940128}
   costs:
   - The Sphere05
-  prefab: {fileID: 6982615961788063049, guid: 6333ca23daaaafd4cb578ca6c634658e, type: 3}
   action: {fileID: 0}
   highlight: {fileID: 1077765114713688247}
   highlighted: 0
@@ -9579,7 +9570,6 @@ MonoBehaviour:
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 5393763657584810645}
   costs: []
-  prefab: {fileID: 0}
   action: {fileID: 0}
   highlight: {fileID: 8300106659183019280}
   highlighted: 0

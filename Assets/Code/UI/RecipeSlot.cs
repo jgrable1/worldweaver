@@ -21,8 +21,6 @@ public class RecipeSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private string[] costs;
     [SerializeField]
-    private GameObject prefab;
-    [SerializeField]
     private InventoryAction action;
     private Inventory inventory;
 
@@ -39,7 +37,6 @@ public class RecipeSlot : MonoBehaviour, IPointerClickHandler
     public string GetName() {return itemName;}
     public int GetProducedCount() {return produceCount;}
     public Sprite GetSprite() {return sprite;}
-    public GameObject GetPrefab() {return prefab;}
     public InventoryAction GetAction() {return action;}
     public string[] GetCosts() {return costs;}
 

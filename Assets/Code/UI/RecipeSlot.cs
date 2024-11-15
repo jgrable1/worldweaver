@@ -31,7 +31,7 @@ public class RecipeSlot : MonoBehaviour, IPointerClickHandler
     void Start() {
         inventory = transform.parent.parent.parent.parent.gameObject.GetComponent<Inventory>();
         highlight = transform.GetChild(0).gameObject;
-        spriteV.sprite = inventory.lockedSprite;
+        if(locked) spriteV.sprite = inventory.lockedSprite;
     }
 
     public string GetName() {return itemName;}
@@ -41,7 +41,8 @@ public class RecipeSlot : MonoBehaviour, IPointerClickHandler
 
     public void Unlock() {
         locked = false;
-        spriteV.sprite = sprite;
+        //print("Recipe for "+itemName+" unlocked!");
+        spriteV.sprite = this.sprite;
     }
 
 

@@ -32,8 +32,10 @@ public class InventoryActionBtn : MonoBehaviour, IPointerClickHandler, IPointerE
     public void ChangeLabel(string s) {label.text = s;}
     private bool CanInteract() {
         if(action == null) return false;
-        if(!allowRecipe && inventory.GetSelectedR() != null) return false;
+        if(!allowRecipe && (inventory.GetSelectedR() != null || inventory.GetSelected() == null)) return false;
         if(allowRecipe && (inventory.GetSelected() == null && inventory.GetSelectedR() == null)) return false;
+        // print(inventory.GetSelected());
+        // if(inventory.GetSelected().IsEmpty()) return false;
         return true;
     }
 

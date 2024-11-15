@@ -38,6 +38,7 @@ public class Inventory : MonoBehaviour
 
     public void SetLocks(Dictionary<string, (string, int)[]> costs){
         foreach(KeyValuePair<string, (string, int)[]> entry in costs){
+            // print(entry.Key+" has "+entry.Value.Length+" locks.");
             recipes[recipeIDs[entry.Key]].remainingLocks = entry.Value.Length;
         }
     }
@@ -177,8 +178,8 @@ public class Inventory : MonoBehaviour
     public void ConsumeItem(string name, int count){
         for(int i = 0; i < slots.Length; i++){
             if(slots[i].GetName() == name){
-                int remainder = slots[i].AddCount(-count);
-                if(remainder == 0) return;
+                count = -slots[i].AddCount(-count);
+                if(count == 0) return;
             }
         }
     }
@@ -213,7 +214,7 @@ public class Inventory : MonoBehaviour
         // StartCoroutine(waiter());
     }
 
-    public ItemSlot GetSelected() {return (selectedItem != -1?slots[selectedItem] : null);}
+    public ItemSlot GetSelected() {return ((selectedItem != -1)?(slots[selectedItem]) : null);}
     public RecipeSlot GetSelectedR() {return (selectedRecipe != -1 ? recipes[selectedRecipe] : null);}
     public World GetWorld() {return world;}
     public bool InventoryActive() {return inventoryUp;}

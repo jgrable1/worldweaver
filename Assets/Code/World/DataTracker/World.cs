@@ -117,10 +117,10 @@ public class World : MonoBehaviour
 
     public void NewItem(string itemName){
         seenItems.Add(itemName);
-        print("New Item: "+itemName+" obtained. Checking locked recipes");
+        // print("New Item: "+itemName+" obtained. Checking locked recipes");
         int remainingLocks;
         foreach(KeyValuePair<string, (string, int)[]> entry in costs){
-            print("Checking recipe for "+entry.Key);
+            // print("Checking recipe for "+entry.Key);
             remainingLocks = inventory.RemainingLocks(entry.Key);
             if(remainingLocks > 0){
                 foreach((string a, int b) in entry.Value){
@@ -130,7 +130,7 @@ public class World : MonoBehaviour
                         break;
                     }
                 }
-            } else print("Already unlocked");
+            } // else print("Already unlocked");
         }
     }
 
@@ -142,7 +142,7 @@ public class World : MonoBehaviour
     public BasicMovement GetPlayer() {return player;}
     public string GetDescription(string itemName) {return descriptions[itemName];}
     public (string, int)[] GetCosts(string itemName) {return (itemName!="Unknown"?costs[itemName]:null);}
-    public GameObject GetPrefab(string name) {return prefabs[name];}
+    public GameObject GetPrefab(string prefabName) {return prefabs[prefabName];}
 
     public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}
     

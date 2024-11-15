@@ -34,16 +34,17 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
 
     public bool AddItem(string name, int count, Sprite sprite, InventoryAction action){
+        // print(name);
         this.itemName = name;
         this.count = count;
         this.sprite = sprite;
         this.action = action;
         this.empty = false;
         if(count > 32){
-            count = 32;
+            this.count = 32;
             full = true;
         }
-        countText.text = count.ToString();
+        countText.text = this.count.ToString();
         countText.enabled = true;
         spriteV.sprite = sprite;
         spriteV.enabled = true;
@@ -75,7 +76,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 countText.enabled = false;
                 spriteV.sprite = this.sprite;
                 spriteV.enabled = false;
-                return -remainder;
+                return remainder;
             } else{
                 this.count += count;
                 countText.text = this.count.ToString();

@@ -10,19 +10,16 @@ public class BasicItem : MonoBehaviour
     [SerializeField]
     private int count;
     [SerializeField]
-    public GameObject inventoryObject;
+    private Inventory inventory;
     [SerializeField]
     public int heal;
     [SerializeField]
     private Sprite sprite;
-    private Inventory inventory;
     private bool collected = true;
     [SerializeField]
     public InventoryAction action;
-    void Start()
-    {
 
-        if(inventoryObject != null) inventory = inventoryObject.GetComponent<Inventory>();
+    void Start(){
         StartCoroutine(waiter());
     }
 

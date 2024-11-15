@@ -488,6 +488,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 704571732621122646, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 1734369807}
+    - target: {fileID: 704571732621122646, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
       propertyPath: inventoryObject
       value: 
       objectReference: {fileID: 1734369806}

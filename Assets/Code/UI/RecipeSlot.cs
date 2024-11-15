@@ -19,26 +19,31 @@ public class RecipeSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     public Image spriteV;
     [SerializeField]
-    private string[] costs;
-    [SerializeField]
     private InventoryAction action;
     private Inventory inventory;
 
     public GameObject highlight;
     public bool highlighted;
     public int id;
+    public bool locked = true;
+    public int remainingLocks;
 
     void Start() {
         inventory = transform.parent.parent.parent.parent.gameObject.GetComponent<Inventory>();
         highlight = transform.GetChild(0).gameObject;
-        spriteV.sprite = sprite;
+        spriteV.sprite = inventory.lockedSprite;
     }
 
     public string GetName() {return itemName;}
     public int GetProducedCount() {return produceCount;}
-    public Sprite GetSprite() {return sprite;}
+    public Sprite GetSprite() {return spriteV.sprite;}
     public InventoryAction GetAction() {return action;}
-    public string[] GetCosts() {return costs;}
+
+    public void Unlock() {
+        locked = false;
+        spriteV.sprite = sprite;
+    }
+
 
     public void OnPointerClick(PointerEventData eventData){
         if(eventData.button == PointerEventData.InputButton.Left){

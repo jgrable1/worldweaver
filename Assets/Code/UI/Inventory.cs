@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     private World world;
     public ItemSlot[] slots;
     public RecipeSlot[] recipes;
+    private Dictionary<string, int> recipeIDs = new Dictionary<string, int>();
     [SerializeField]
     private TMP_Text selectedDescription, selectedName, errorDisplay;
     [SerializeField]
@@ -19,11 +20,26 @@ public class Inventory : MonoBehaviour
     private int selectedItem;
     private int selectedRecipe;
     public InventoryAction craftingAction;
+    public Sprite lockedSprite;
 
-    void Start()
-    {
+    void Awake(){
         for(int i = 0; i < slots.Length; i++) slots[i].id = i;
-        for(int i = 0; i < recipes.Length; i++) recipes[i].id = i;
+        for(int i = 0; i < recipes.Length; i++){
+            recipes[i].id = i;
+            // print("Setting recipe for "+recipes[i].GetName()+" to id "+i);
+            recipeIDs.Add(recipes[i].GetName(), i);
+        }
+    }
+
+    /*void Start()
+    {
+        
+    }*/
+
+    public void SetLocks(Dictionary<string, (string, int)[]> costs){
+        foreach(KeyValuePair<string, (string, int)[]> entry in costs){
+            recipes[recipeIDs[entry.Key]].remainingLocks = entry.Value.Length;
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +62,7 @@ public class Inventory : MonoBehaviour
         bool foundSlot = false;
         int originalCount = count;
         int slotIndex = FindExistingSlot(name);
+        if(!world.HasSeenItem(name)) world.NewItem(name);
         while(slotIndex != -1){
             print("Found existing slot "+(slotIndex+1)+" containing "+name);
             count = slots[slotIndex].AddCount(count);
@@ -88,6 +105,13 @@ public class Inventory : MonoBehaviour
         return foundSlot;
     }
 
+    private void UnlockRecipe(string name) {recipes[recipeIDs[name]].Unlock();}
+    public int RemainingLocks(string name) {return recipes[recipeIDs[name]].remainingLocks;}
+    public void RemoveLock (string name) {
+        if(recipes[recipeIDs[name]].remainingLocks == 1) UnlockRecipe(name);
+        recipes[recipeIDs[name]].remainingLocks--;
+    }
+
     public void DescribeItem(ItemSlot item){
         selectedImage.enabled = true;
         selectedImage.sprite = item.GetSprite();
@@ -100,15 +124,18 @@ public class Inventory : MonoBehaviour
     public void DescribeCraft(RecipeSlot recipe){
         selectedImage.enabled = true;
         selectedImage.sprite = recipe.GetSprite();
-        selectedDescription.text = world.GetDescription(recipe.GetName())+"\n\n"+CostString(world.GetCosts(recipe.GetName()));
-        selectedName.text = recipe.GetName();
+        string recipeName = (recipe.locked ? "Unknown" : recipe.GetName());
+        selectedDescription.text = world.GetDescription(recipeName)+"\n\n"+CostString(world.GetCosts(recipeName));
+        selectedName.text = recipeName;
         selectedRecipe = recipe.id;
         selectedItem = -1;
+        transform.GetChild(0).GetChild(1).GetChild(3).gameObject.SetActive(false);
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel("Craft");
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = craftingAction;
+        if(!recipe.locked) transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = craftingAction;
     }
 
     public string CostString((string, int)[] costs){
+        if(costs == null) return "";
         string result = "Costs ";
         int curr = 0;
         foreach((string a, int b) in costs){
@@ -142,6 +169,7 @@ public class Inventory : MonoBehaviour
         errorDisplay.transform.gameObject.SetActive(false);
 
         transform.GetChild(0).GetChild(1).GetChild(3).GetComponent<InventoryActionBtn>().EndHighlight();
+        transform.GetChild(0).GetChild(1).GetChild(3).gameObject.SetActive(true);
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().EndHighlight();
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel("Use");
     }

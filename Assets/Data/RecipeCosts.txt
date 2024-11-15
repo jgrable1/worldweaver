@@ -1,1 +1,11 @@
 Better Sphere; The Sphere05
+Wood Axe; Wood08
+Wood Pickaxe; Wood08
+Wood Sword; Wood06
+Stone Axe; Stone03; Wood05
+Stone Pickaxe; Stone03; Wood05
+Stone Sword; Stone05; Wood01
+Iron Axe; Iron Ingot03; Wood05
+Iron Pickaxe; Iron Ingot03; Wood05
+Iron Sword; Iron Ingot05; Wood01
+Unknown; ???

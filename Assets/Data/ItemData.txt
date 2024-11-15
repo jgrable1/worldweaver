@@ -1,2 +1,12 @@
 The Sphere; Ancient artifact of Sir Ligma the 45th, grants 0.000005 additional speed.\n\n Try to prove me wrong.
 Better Sphere; Forged from multiple of Sir Limga the 45th's legacy, grants 0.000004 speed.
+Wood Axe; Axe made out of wood. Not very effective.
+Wood Pickaxe; Pickaxe made out of wood. Not very effective.
+Wood Sword; Sword made out of wood. Not very effective.
+Stone Axe; Axe carved out of stone.
+Stone Pickaxe; Pickaxe carved out of stone.
+Stone Sword; Sword carved out of stone.
+Iron Axe; Axe forged out of iron.
+Iron Pickaxe; Pickaxe forged out of iron.
+Iron Sword; Sword forged out of iron.
+Unknown; Unknown recipe\n Find new items to discover new recipes!

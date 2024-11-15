@@ -55,3 +55,4 @@ MonoBehaviour:
   - {fileID: 6754692286381045329, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
   - {fileID: 6982615961788063049, guid: 6333ca23daaaafd4cb578ca6c634658e, type: 3}
   - {fileID: 663655740545220860, guid: 031203d7d5a6903409da638eb4af0024, type: 3}
+  inventory: {fileID: 0}

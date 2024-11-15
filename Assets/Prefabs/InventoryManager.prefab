@@ -546,15 +546,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Stone Pickaxe
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 353089666569211286}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 3712973794714202791}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &355521921184633245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,15 +1632,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Wood Sword
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7928985040561999868}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 6687029521841648078}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &1042495929295227188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,15 +2514,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Iron Sword
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 3958619163962951527}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 5040157892260241104}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &1398396665914153198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,11 +3320,12 @@ MonoBehaviour:
   produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7337273216351473666}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 4002910361615011313}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &2203001256865394504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,15 +4480,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Iron Pickaxe
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 2500588646784623793}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 80672549932343087}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &3284698133385347001
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,11 +6726,21 @@ MonoBehaviour:
   - {fileID: 4634114748557704663}
   recipes:
   - {fileID: 6743254385334275056}
+  - {fileID: 6806243607329136004}
+  - {fileID: 9080001534071076378}
+  - {fileID: 8898977695072336221}
+  - {fileID: 9071489414995502655}
+  - {fileID: 3521707406851723058}
+  - {fileID: 5767806729248937235}
+  - {fileID: 7022373124298425987}
+  - {fileID: 5253805353137353910}
+  - {fileID: 3684511770881096642}
   selectedDescription: {fileID: 5517423991596507533}
   selectedName: {fileID: 6938685196376225339}
   errorDisplay: {fileID: 0}
   selectedImage: {fileID: 6615224133251492023}
   craftingAction: {fileID: 11400000, guid: 2825160589f21fa4a8eb465d4a9cb937, type: 2}
+  lockedSprite: {fileID: 21300000, guid: 088a80ead3603ac4aafb2e5087ae7ed9, type: 3}
 --- !u!1 &4847815565139662207
 GameObject:
   m_ObjectHideFlags: 0
@@ -7577,15 +7592,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Stone Sword
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1465641490930740553}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 3636347757274499066}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &5677882772410945975
 GameObject:
   m_ObjectHideFlags: 0
@@ -7938,15 +7954,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Wood Pickaxe
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1548963883503546456}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 5191558404530551525}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &6034157554366179507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,15 +8413,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Iron Axe
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 752952265079929823}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 3652739081342118748}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &6423171907945273759
 GameObject:
   m_ObjectHideFlags: 0
@@ -9372,12 +9390,12 @@ MonoBehaviour:
   produceCount: 1
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 4519873173423940128}
-  costs:
-  - The Sphere05
   action: {fileID: 0}
   highlight: {fileID: 1077765114713688247}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &7795366031790743334
 GameObject:
   m_ObjectHideFlags: 0
@@ -9565,15 +9583,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empty: 0
-  itemName: 
-  produceCount: 0
+  itemName: Stone Axe
+  produceCount: 1
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 5393763657584810645}
-  costs: []
   action: {fileID: 0}
   highlight: {fileID: 8300106659183019280}
   highlighted: 0
   id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &7845448967908020519
 GameObject:
   m_ObjectHideFlags: 0

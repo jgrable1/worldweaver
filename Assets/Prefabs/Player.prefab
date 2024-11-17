@@ -193,7 +193,7 @@ MonoBehaviour:
   worldObject: {fileID: 0}
   ground:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 279
   playerSpeed: 5
   lockMovement: 0
   lockCamera: 0

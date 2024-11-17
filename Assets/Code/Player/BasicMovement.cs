@@ -74,7 +74,7 @@ public class BasicMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        groundedPlayer = Physics.CheckSphere(transform.position - new Vector3(0, 0.75f, 0), 0.1f, ground);
+        groundedPlayer = Physics.CheckSphere(transform.position - new Vector3(0, 0.75f, 0), 0.1f, ground, QueryTriggerInteraction.Ignore);
 
         if(groundedPlayer) body.drag = playerSpeed;
         else body.drag = playerSpeed/5;
@@ -87,16 +87,23 @@ public class BasicMovement : MonoBehaviour
 
         if(OnSlope()) playerVelocity = Vector3.ProjectOnPlane(playerVelocity, terrainHit.normal);
         // print(OnSlope());
+        // print(groundedPlayer);
         float runningMult = running?1.5f:1.0f;
 
         body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?runningMult:0.2f), ForceMode.Acceleration);
     }
 
     bool OnSlope(){
-        if(Physics.Raycast(transform.position, Vector3.down, out terrainHit, 1)){
+        if(Physics.Raycast(transform.position, Vector3.down, out terrainHit, 1, ground, QueryTriggerInteraction.Ignore)){
             if(terrainHit.normal != Vector3.up) return true;
-            else return false;
-        } else return false;
+            else{
+                // print("Terrain points straight up");
+                return false;
+            }
+        } else{
+            // print("No terrain hit");
+            return false;
+        }
     }
 
     public bool IsGrounded(){ return groundedPlayer;}

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InventoryAction", menuName = "Inventory Actions/InventoryAction", order = 1)]
 public class InventoryAction : ScriptableObject
 {
+    [SerializeField]
+    public string actionName;
     protected bool canAct = true;
     protected int useCount = 0;
     protected bool itemAction = true;

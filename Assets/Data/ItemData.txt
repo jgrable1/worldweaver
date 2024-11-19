@@ -1,5 +1,5 @@
-The Sphere; Ancient artifact of Sir Ligma the 45th, grants 0.000005 additional speed.\n\n Try to prove me wrong.
-Better Sphere; Forged from multiple of Sir Limga the 45th's legacy, grants 0.000004 speed.
+The Sphere; Ancient artifact of Sir Ligma the 45th, grants 0.000005 additional speed.\n\n Try to prove me wrong.\nHeals 1 HP.
+Better Sphere; Forged from multiple of Sir Limga the 45th's legacy, grants 0.000004 speed.\n Heals 5 HP.
 Wood Axe; Axe made out of wood. Not very effective.
 Wood Pickaxe; Pickaxe made out of wood. Not very effective.
 Wood Sword; Sword made out of wood. Not very effective.

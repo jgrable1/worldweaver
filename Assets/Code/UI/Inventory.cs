@@ -121,6 +121,7 @@ public class Inventory : MonoBehaviour
         selectedItem = item.id;
         selectedRecipe = -1;
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = item.GetAction();
+        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel(item.GetAction().actionName);
     }
     public void DescribeCraft(RecipeSlot recipe){
         selectedImage.enabled = true;

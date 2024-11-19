@@ -47,6 +47,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
     
+    public int GetMaxHealth(){return playerMaxHP;}
+    public void SetMaxHealth(int newMax){playerMaxHP = newMax;}
+    public float GetMaxStamina(){return playerMaxStamina;}
+    public void SetMaxStamina(float newMax){playerMaxStamina = newMax;}
+
     IEnumerator IFrames(){
         yield return new WaitForSeconds(3); // Can't take damage for 3 seconds.
         invincible = false;

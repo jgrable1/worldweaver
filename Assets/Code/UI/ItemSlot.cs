@@ -76,6 +76,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
                 countText.enabled = false;
                 spriteV.sprite = this.sprite;
                 spriteV.enabled = false;
+                inventory.DeselectLastSlot();
                 return remainder;
             } else{
                 this.count += count;

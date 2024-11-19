@@ -12,8 +12,6 @@ public class BasicItem : MonoBehaviour
     [SerializeField]
     private Inventory inventory;
     [SerializeField]
-    public int heal;
-    [SerializeField]
     private Sprite sprite;
     private bool collected = true;
     [SerializeField]
@@ -30,16 +28,19 @@ public class BasicItem : MonoBehaviour
             collected = true;
             if(inventory.AddItem(itemName, count, sprite, action)){
                 Destroy(gameObject);
-                Transform player = other.transform;
+                /*Transform player = other.transform;
                 while(player.gameObject.name != "Player"){
                     player = player.transform.parent;
                 }
                 PlayerStats script = player.GetComponent<PlayerStats>();
-                script.PlayerHPUpdate(heal);
+                script.PlayerHPUpdate(heal);*/
             }
             else StartCoroutine(waiter());
         }
     }
+
+    public string GetName(){return itemName;}
+    public Sprite GetSprite(){return sprite;}
 
     IEnumerator waiter(){
         yield return new WaitForSeconds(3);

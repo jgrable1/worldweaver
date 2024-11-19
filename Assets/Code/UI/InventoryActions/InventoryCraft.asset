@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89c4daad4fd764499c48091f52209a9, type: 3}
   m_Name: InventoryCraft
   m_EditorClassIdentifier: 
+  actionName: Craft

@@ -19,7 +19,8 @@ public class MeleeEnemyMove : MonoBehaviour
     IEnumerator Chase(){
         Vector3 v = ((PlayerObject.transform.position - this.transform.position).normalized)*5;
         v.y = 0;
-        RigidbodyComponent.velocity = v;
+        RigidbodyComponent.AddForce(v*30, ForceMode.Acceleration);
+        RigidbodyComponent.transform.rotation = Quaternion.LookRotation(v);
         yield return new WaitForSeconds(0.2f); // Rechecks player position every second.
         StartCoroutine(Chase());
     }

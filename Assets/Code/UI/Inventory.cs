@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     private int selectedRecipe;
     public InventoryAction craftingAction;
     public Sprite lockedSprite;
+    public int equipped;
 
     void Awake(){
         for(int i = 0; i < slots.Length; i++) slots[i].id = i;
@@ -29,6 +30,7 @@ public class Inventory : MonoBehaviour
             // print("Setting recipe for "+recipes[i].GetName()+" to id "+i);
             recipeIDs.Add(recipes[i].GetName(), i);
         }
+        
     }
 
     /*void Start()
@@ -121,7 +123,9 @@ public class Inventory : MonoBehaviour
         selectedItem = item.id;
         selectedRecipe = -1;
         transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = item.GetAction();
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel(item.GetAction().actionName);
+        string actName = item.GetAction().actionName;
+        if(actName == "Equip" && item.id == equipped) actName = "Unequip";
+        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel(actName);
     }
     public void DescribeCraft(RecipeSlot recipe){
         selectedImage.enabled = true;
@@ -219,6 +223,11 @@ public class Inventory : MonoBehaviour
     public RecipeSlot GetSelectedR() {return (selectedRecipe != -1 ? recipes[selectedRecipe] : null);}
     public World GetWorld() {return world;}
     public bool InventoryActive() {return inventoryUp;}
+    public string GetPlayerTool() {return ((equipped != -1)?slots[equipped].GetName():null);}
+    public void EquipSelected() {
+        world.PlayerEquip(equipped != selectedItem, GetSelected().GetName());
+        equipped = ((equipped == selectedItem)?-1:selectedItem);
+    }
 
     /*IEnumerator waiter(){
         yield return new WaitForSeconds(5);

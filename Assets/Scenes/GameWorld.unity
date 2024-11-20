@@ -122,17 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &3242658 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3684511770881096642, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &392197122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,150 +218,19 @@ PrefabInstance:
       propertyPath: errorDisplay
       value: 
       objectReference: {fileID: 2140706993}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: lockedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 088a80ead3603ac4aafb2e5087ae7ed9, type: 3}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[1]
-      value: 
-      objectReference: {fileID: 1781027440}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[2]
-      value: 
-      objectReference: {fileID: 504748553}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[3]
-      value: 
-      objectReference: {fileID: 1870659407}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[4]
-      value: 
-      objectReference: {fileID: 434073340}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[5]
-      value: 
-      objectReference: {fileID: 1787377082}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[6]
-      value: 
-      objectReference: {fileID: 1624531413}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[7]
-      value: 
-      objectReference: {fileID: 865706442}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[8]
-      value: 
-      objectReference: {fileID: 521252375}
-    - target: {fileID: 688622239874247257, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: recipes.Array.data[9]
-      value: 
-      objectReference: {fileID: 3242658}
-    - target: {fileID: 3521707406851723058, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Stone Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3521707406851723058, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684511770881096642, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Iron Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684511770881096642, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4698696447411314863, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
       propertyPath: m_Name
       value: InventoryManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5253805353137353910, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Iron Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 5253805353137353910, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767806729248937235, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Stone Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 5767806729248937235, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6743254385334275056, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
       propertyPath: action
       value: 
       objectReference: {fileID: 11400000, guid: 718bbd3881b14f94eba21d1ed6819ef4, type: 2}
-    - target: {fileID: 6743254385334275056, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 3791297110345807694, guid: 6333ca23daaaafd4cb578ca6c634658e, type: 3}
-    - target: {fileID: 6743254385334275056, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 6743254385334275056, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Better Sphere
-      objectReference: {fileID: 0}
-    - target: {fileID: 7022373124298425987, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Iron Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 7022373124298425987, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898977695072336221, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Wood Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 8898977695072336221, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071489414995502655, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Stone Axe
-      objectReference: {fileID: 0}
-    - target: {fileID: 9071489414995502655, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080001534071076378, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: itemName
-      value: Wood Pickaxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080001534071076378, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: produceCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
---- !u!114 &434073340 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9071489414995502655, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &435185185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -460,39 +318,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6e90b666634ae4caec06513cb288e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &504748553 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9080001534071076378, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &521252375 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5253805353137353910, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &865706442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7022373124298425987, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1029184061
@@ -894,17 +719,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1624531413 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5767806729248937235, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1706863721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,39 +827,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd85fd465ca6a3f4ebfa30706e251437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1781027440 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6806243607329136004, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1787377082 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3521707406851723058, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1870659407 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8898977695072336221, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-  m_PrefabInstance: {fileID: 392197122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1929310141

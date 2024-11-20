@@ -6,7 +6,7 @@ using TMPro;
 using System.IO;
 public class World : MonoBehaviour
 {
-    private bool canMove, canLook, notifUse, notifOpen, staminaUse, shownStaminaTip;
+    private bool canMove, canLook, notifUse, notifOpen, staminaUse, shownStaminaTip, playerTool;
     private List<string> moveRestrictor, lookRestrictor;
     private List<(string, float)> notificationQueue;
     [SerializeField]
@@ -25,6 +25,7 @@ public class World : MonoBehaviour
     [SerializeField]
     private Inventory inventory;
     private Dictionary<string, GameObject> prefabs = new Dictionary<string, GameObject>();
+    private Dictionary<string, int> tools = new Dictionary<string, int>();
     private List<string> seenItems = new List<string>();
     
     void Start()
@@ -34,6 +35,7 @@ public class World : MonoBehaviour
         canLook = true;
         staminaUse = true;
         shownStaminaTip = false;
+        playerTool = false;
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
         notificationQueue = new List<(string, float)>();
@@ -45,6 +47,9 @@ public class World : MonoBehaviour
         }
         prefabNames = null;
         prefabsList = null;
+        tools.Add("Wooden Axe", 0); tools.Add("Wooden Pickaxe", 1); tools.Add("Wooden Sword", 2);
+        tools.Add("Stone Axe", 3); tools.Add("Stone Pickaxe", 4); tools.Add("Stone Sword", 5);
+        tools.Add("Iron Axe", 6); tools.Add("Iron Pickaxe", 7); tools.Add("Iron Sword", 8);
         //notificationText.transform.position = new Vector3((Screen.width/2)+200, (-Screen.height/2)+50, 0);
         //instructions.transform.position = new Vector3((-Screen.width/2), (Screen.height/2), 0);
     }
@@ -143,6 +148,13 @@ public class World : MonoBehaviour
     public string GetDescription(string itemName) {return descriptions[itemName];}
     public (string, int)[] GetCosts(string itemName) {return (itemName!="Unknown"?costs[itemName]:null);}
     public GameObject GetPrefab(string prefabName) {return prefabs[prefabName];}
+    public Inventory GetInventory() {return inventory;}
+    public string GetPlayerAction() {return (playerTool?inventory.GetPlayerTool():null);}
+    public void PlayerEquip(bool b, string toolName) {
+        playerTool = b;
+        if(b) GetPlayer().transform.GetChild(0).GetChild(2).GetChild(0).GetChild(tools[toolName]).gameObject.SetActive(true);
+        else GetPlayer().transform.GetChild(0).GetChild(2).GetChild(0).GetChild(tools[toolName]).gameObject.SetActive(false);
+    }
 
     public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}
     

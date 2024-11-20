@@ -39,6 +39,10 @@ public class BasicItem : MonoBehaviour
         }
     }
 
+    public void AddItemBypass(Inventory inventory, int count){
+        inventory.AddItem(itemName, count, sprite, action);
+    }
+
     public string GetName(){return itemName;}
     public Sprite GetSprite(){return sprite;}
 

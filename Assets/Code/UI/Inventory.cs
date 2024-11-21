@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
     }
 
     void Activate(bool b){
-        print("Activate called");
+        // print("Activate called");
         if(!b) DeselectLastSlot();
         inventoryUp = b;
         inventory.SetActive(b);
@@ -67,7 +67,7 @@ public class Inventory : MonoBehaviour
         int slotIndex = FindExistingSlot(name);
         if(!world.HasSeenItem(name)) world.NewItem(name);
         while(slotIndex != -1){
-            print("Found existing slot "+(slotIndex+1)+" containing "+name);
+            // print("Found existing slot "+(slotIndex+1)+" containing "+name);
             count = slots[slotIndex].AddCount(count);
             if(count <= 0){
                 foundSlot = true;

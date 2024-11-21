@@ -89,8 +89,14 @@ public class BasicMovement : MonoBehaviour
         // print(OnSlope());
         // print(groundedPlayer);
         float runningMult = running?1.5f:1.0f;
-
-        body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?runningMult:0.2f), ForceMode.Acceleration);
+        if(!world.CanMove() && world.GetPlayerAction() != null){
+            // print("Attempting to stop Player movement");
+            walking = false;
+            Vector3 temp = body.velocity;
+            temp.x = 0;
+            temp.z = 0;
+            temp = body.velocity;
+        } else body.AddForce(playerVelocity*playerSpeed*10*(groundedPlayer?runningMult:0.2f), ForceMode.Acceleration);
     }
 
     bool OnSlope(){

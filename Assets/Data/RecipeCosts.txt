@@ -1,7 +1,7 @@
 Better Sphere; The Sphere05
-Wood Axe; Wood08
-Wood Pickaxe; Wood08
-Wood Sword; Wood06
+Wooden Axe; Wood08
+Wooden Pickaxe; Wood08
+Wooden Sword; Wood06
 Stone Axe; Stone03; Wood05
 Stone Pickaxe; Stone03; Wood05
 Stone Sword; Stone05; Wood01

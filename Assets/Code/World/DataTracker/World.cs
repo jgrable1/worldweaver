@@ -16,6 +16,7 @@ public class World : MonoBehaviour
     private float notifWait, timer, staminaConsumption;
     [SerializeField]
     private BasicMovement player;
+    private ArmAnimation rightArm;
     private Dictionary<string, string> descriptions = new Dictionary<string, string>();
     private Dictionary<string, (string, int)[]> costs = new Dictionary<string, (string, int)[]>();
     [SerializeField]
@@ -36,6 +37,7 @@ public class World : MonoBehaviour
         staminaUse = true;
         shownStaminaTip = false;
         playerTool = false;
+        rightArm = player.transform.GetChild(0).GetChild(2).GetComponent<ArmAnimation>();
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
         notificationQueue = new List<(string, float)>();
@@ -92,7 +94,7 @@ public class World : MonoBehaviour
     public void ChangeStaminaConsumption(float change){staminaConsumption += change;}
 
     public void RestrictMovement(bool restrict, string source){
-        print(source+ " "+(restrict?"dis":"en")+"abling movement.");
+        // print(source+ " "+(restrict?"dis":"en")+"abling movement.");
         if(canMove && restrict){
             canMove = false;
             moveRestrictor.Add(source);
@@ -151,9 +153,21 @@ public class World : MonoBehaviour
     public Inventory GetInventory() {return inventory;}
     public string GetPlayerAction() {return (playerTool?inventory.GetPlayerTool():null);}
     public void PlayerEquip(bool b, string toolName) {
-        playerTool = b;
+        // playerTool = b;
         if(b) GetPlayer().transform.GetChild(0).GetChild(2).GetChild(0).GetChild(tools[toolName]).gameObject.SetActive(true);
         else GetPlayer().transform.GetChild(0).GetChild(2).GetChild(0).GetChild(tools[toolName]).gameObject.SetActive(false);
+    }
+    public void EndSwing() {
+        playerTool = false;
+        RestrictMovement(false, "Tool Swing");
+    }
+
+    public void UseTool() {
+        if(inventory.GetPlayerTool() != null && !playerTool){
+            playerTool = true;
+            RestrictMovement(true, "Tool Swing");
+            StartCoroutine(rightArm.SwingTool());
+        }
     }
 
     public void QueueNotification(string notif, float waitTime) {notificationQueue.Add((notif, waitTime));}

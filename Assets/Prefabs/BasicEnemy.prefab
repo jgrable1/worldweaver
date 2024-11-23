@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8373784155585700922}
   m_Layer: 7
   m_Name: Arm1Joint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,6 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 236629113841351098}
   - component: {fileID: 8746597390136466371}
+  - component: {fileID: 8837352456098846097}
+  - component: {fileID: 2615996107556348357}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -90,8 +92,34 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 2
+--- !u!114 &8837352456098846097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663655740545220860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ca06125018f54eb32f710fae72f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2615996107556348357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663655740545220860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a39c0aff29c2345b93b857d9d6e442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHP: 5
+  PlayerObject: {fileID: 0}
 --- !u!1 &1012797810957159780
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +132,7 @@ GameObject:
   - component: {fileID: 464460987188325193}
   m_Layer: 7
   m_Name: Walk
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +189,7 @@ GameObject:
   - component: {fileID: 7501470595825906865}
   m_Layer: 7
   m_Name: Leg2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,7 +402,7 @@ GameObject:
   - component: {fileID: 629333771315625941}
   m_Layer: 6
   m_Name: Body
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,7 +513,7 @@ GameObject:
   - component: {fileID: 3640936625507838749}
   m_Layer: 7
   m_Name: Arm1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,7 +618,7 @@ GameObject:
   - component: {fileID: 2138039519844575467}
   m_Layer: 7
   m_Name: Leg1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,7 +829,7 @@ GameObject:
   - component: {fileID: 1706169375597926996}
   m_Layer: 7
   m_Name: Walk
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -858,7 +886,7 @@ GameObject:
   - component: {fileID: 8301655725538996821}
   m_Layer: 7
   m_Name: Arm2
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,7 +988,7 @@ GameObject:
   - component: {fileID: 4006825256169311738}
   m_Layer: 7
   m_Name: Arm2Joint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

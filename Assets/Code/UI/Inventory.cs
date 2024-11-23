@@ -225,6 +225,9 @@ public class Inventory : MonoBehaviour
     public bool InventoryActive() {return inventoryUp;}
     public string GetPlayerTool() {return ((equipped != -1)?slots[equipped].GetName():null);}
     public void EquipSelected() {
+        if(equipped != -1 && equipped != selectedItem){
+            world.PlayerEquip(false, slots[equipped].GetName());
+        }
         world.PlayerEquip(equipped != selectedItem, GetSelected().GetName());
         equipped = ((equipped == selectedItem)?-1:selectedItem);
     }

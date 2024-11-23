@@ -548,9 +548,9 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Pickaxe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 353089666569211286}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3712973794714202791}
   highlighted: 0
   id: 0
@@ -1502,8 +1502,8 @@ MonoBehaviour:
   m_fontSize: 21
   m_fontSizeBase: 21
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 13
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1634,9 +1634,9 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Sword
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7928985040561999868}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 6687029521841648078}
   highlighted: 0
   id: 0
@@ -2516,9 +2516,9 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Sword
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 3958619163962951527}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 5040157892260241104}
   highlighted: 0
   id: 0
@@ -3318,9 +3318,9 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Axe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 7337273216351473666}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 4002910361615011313}
   highlighted: 0
   id: 0
@@ -4482,9 +4482,9 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Pickaxe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 2500588646784623793}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 80672549932343087}
   highlighted: 0
   id: 0
@@ -7595,9 +7595,9 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Sword
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1465641490930740553}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3636347757274499066}
   highlighted: 0
   id: 0
@@ -7957,9 +7957,9 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Pickaxe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 1548963883503546456}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 5191558404530551525}
   highlighted: 0
   id: 0
@@ -8416,9 +8416,9 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Axe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 752952265079929823}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3652739081342118748}
   highlighted: 0
   id: 0
@@ -9586,9 +9586,9 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Axe
   produceCount: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   spriteV: {fileID: 5393763657584810645}
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 8300106659183019280}
   highlighted: 0
   id: 0

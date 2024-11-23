@@ -13,6 +13,7 @@ public class InventoryDrop : InventoryAction
         Debug.Log("Inventory Drop Called");
         BasicItem newItemObject = Instantiate(world.GetPrefab(item.GetName()), modifiedPosition, Quaternion.identity).GetComponent<BasicItem>();
         newItemObject.SetInventoryRef(inventory);
+        newItemObject.SetCount(item.GetCount());
         inventory.DeleteItem();
     }
 }

@@ -125,6 +125,7 @@ public class World : MonoBehaviour
     public void NewItem(string itemName){
         seenItems.Add(itemName);
         // print("New Item: "+itemName+" obtained. Checking locked recipes");
+        QueueNotification("New item obtained: "+itemName, 2.0f);
         int remainingLocks;
         foreach(KeyValuePair<string, (string, int)[]> entry in costs){
             // print("Checking recipe for "+entry.Key);

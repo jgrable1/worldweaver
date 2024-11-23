@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class BasicItem : MonoBehaviour
@@ -45,6 +44,7 @@ public class BasicItem : MonoBehaviour
 
     public string GetName(){return itemName;}
     public Sprite GetSprite(){return sprite;}
+    public void SetCount(int count){this.count = count;}
 
     IEnumerator waiter(){
         yield return new WaitForSeconds(3);

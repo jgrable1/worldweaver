@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
     public InventoryAction craftingAction;
     public Sprite lockedSprite;
     public int equipped;
+    private InventoryActionBtn dropBtn, useBtn;
 
     void Awake(){
         for(int i = 0; i < slots.Length; i++) slots[i].id = i;
@@ -33,10 +34,10 @@ public class Inventory : MonoBehaviour
         
     }
 
-    /*void Start()
-    {
-        
-    }*/
+    void Start(){
+        dropBtn = transform.GetChild(0).GetChild(1).GetChild(3).GetComponent<InventoryActionBtn>();
+        useBtn = transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>();
+    }
 
     public void SetLocks(Dictionary<string, (string, int)[]> costs){
         foreach(KeyValuePair<string, (string, int)[]> entry in costs){
@@ -104,11 +105,14 @@ public class Inventory : MonoBehaviour
         
         if(!foundSlot){
             world.QueueNotification("Inventory is Full!", 3.0f);
-        } else world.QueueNotification("Obtained "+originalCount+" of "+name, 3.0f);
+        }
         return foundSlot;
     }
 
-    private void UnlockRecipe(string name) {recipes[recipeIDs[name]].Unlock();}
+    private void UnlockRecipe(string name) {
+        world.QueueNotification("Unlocked recipe for "+recipes[recipeIDs[name]].GetName(), 2.0f);
+        recipes[recipeIDs[name]].Unlock();
+    }
     public int RemainingLocks(string name) {return recipes[recipeIDs[name]].remainingLocks;}
     public void RemoveLock (string name) {
         if(recipes[recipeIDs[name]].remainingLocks == 1) UnlockRecipe(name);
@@ -122,10 +126,13 @@ public class Inventory : MonoBehaviour
         selectedName.text = item.GetName();
         selectedItem = item.id;
         selectedRecipe = -1;
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = item.GetAction();
-        string actName = item.GetAction().actionName;
-        if(actName == "Equip" && item.id == equipped) actName = "Unequip";
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel(actName);
+        useBtn.action = item.GetAction();
+        string actName = "Use";
+        if(item.GetAction() != null){
+            actName = item.GetAction().actionName;
+            if(actName == "Equip" && item.id == equipped) actName = "Unequip";
+        }
+        useBtn.ChangeLabel(actName);
     }
     public void DescribeCraft(RecipeSlot recipe){
         selectedImage.enabled = true;
@@ -135,9 +142,9 @@ public class Inventory : MonoBehaviour
         selectedName.text = recipeName;
         selectedRecipe = recipe.id;
         selectedItem = -1;
-        transform.GetChild(0).GetChild(1).GetChild(3).gameObject.SetActive(false);
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel("Craft");
-        if(!recipe.locked) transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().action = craftingAction;
+        dropBtn.gameObject.SetActive(false);
+        useBtn.ChangeLabel("Craft");
+        if(!recipe.locked) useBtn.action = craftingAction;
     }
 
     public string CostString((string, int)[] costs){
@@ -174,10 +181,10 @@ public class Inventory : MonoBehaviour
         selectedRecipe = -1;
         errorDisplay.transform.gameObject.SetActive(false);
 
-        transform.GetChild(0).GetChild(1).GetChild(3).GetComponent<InventoryActionBtn>().EndHighlight();
-        transform.GetChild(0).GetChild(1).GetChild(3).gameObject.SetActive(true);
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().EndHighlight();
-        transform.GetChild(0).GetChild(1).GetChild(4).GetComponent<InventoryActionBtn>().ChangeLabel("Use");
+        dropBtn.EndHighlight();
+        dropBtn.gameObject.SetActive(true);
+        useBtn.EndHighlight();
+        useBtn.ChangeLabel("Use");
     }
 
     public void ConsumeItem(string name, int count){
@@ -208,6 +215,7 @@ public class Inventory : MonoBehaviour
 
     public void DeleteItem() {
         // print("Before: "+slots[selectedItem].GetCount());
+        if(selectedItem == equipped) EquipSelected();
         slots[selectedItem].AddCount(-slots[selectedItem].GetCount());
         // print("After: "+slots[selectedItem].GetCount());
         DeselectLastSlot();
@@ -225,11 +233,10 @@ public class Inventory : MonoBehaviour
     public bool InventoryActive() {return inventoryUp;}
     public string GetPlayerTool() {return ((equipped != -1)?slots[equipped].GetName():null);}
     public void EquipSelected() {
-        if(equipped != -1 && equipped != selectedItem){
-            world.PlayerEquip(false, slots[equipped].GetName());
-        }
+        if(equipped != -1 && equipped != selectedItem) world.PlayerEquip(false, slots[equipped].GetName());
         world.PlayerEquip(equipped != selectedItem, GetSelected().GetName());
         equipped = ((equipped == selectedItem)?-1:selectedItem);
+        useBtn.ChangeLabel((equipped == -1)?"Equip":"Unequip");
     }
 
     /*IEnumerator waiter(){

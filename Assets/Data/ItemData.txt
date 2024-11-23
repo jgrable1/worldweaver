@@ -11,6 +11,7 @@ Iron Pickaxe; Pickaxe forged out of iron.
 Iron Sword; Sword forged out of iron.
 Wood; A chopped slab of wood. Can be carved into tools.
 Stone; A chunk of rock. Can be carved into tools.
-Iron Ore; A chunk of rock with raw iron embedded within.\n\n Must be smelted in a smelter.
+Coal; A chunk of carbon material to be used in a smelter to smelt Iron.
+Iron Ore; A chunk of rock with raw iron embedded within.\n\n Must have coal and be near a smelter to smelt ore.
 Iron Ingot; A slab of refined Iron. Ready to be shaped into tools.
 Unknown; Unknown recipe\n Find new items to discover new recipes!

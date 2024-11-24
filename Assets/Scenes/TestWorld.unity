@@ -743,6 +743,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10.2, y: 0.35, z: 0}
+--- !u!114 &710665480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3023131957437526975, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+  m_PrefabInstance: {fileID: 81732838067211759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a69eef101bf6b845890fad3bf1a8aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &724302395 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8711002431747457290, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
@@ -2893,6 +2904,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay
       objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 265
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614180265460574109, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_text
+      value: 'Dash: Active'
+      objectReference: {fileID: 0}
     - target: {fileID: 7323419815805550251, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4187,6 +4226,10 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 492014061726166953}
+    - target: {fileID: 1210720210701417474, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
+      propertyPath: dashBar
+      value: 
+      objectReference: {fileID: 710665480}
     - target: {fileID: 1840837683456120751, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
       propertyPath: world
       value: 

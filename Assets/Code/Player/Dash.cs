@@ -10,8 +10,9 @@ public class Dash : MonoBehaviour
     [SerializeField]
     private World world;
     float dashCooldown, dashLimit, dashSpeed;
-    bool dashing = false;
+    private bool dashing = false, trigger = false;
     Vector3 dir;
+    public PlayerStatUI dashBar;
 
     void Start()
     {
@@ -38,6 +39,8 @@ public class Dash : MonoBehaviour
                 world.RestrictMovement(true, "Dash");
                 dashCooldown = 0f;
                 dashing = true;
+                dashBar.updateDash(false);
+                trigger = false;
                 dir = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
                 dir.y = 0;
                 if(dir == Vector3.zero){
@@ -46,6 +49,9 @@ public class Dash : MonoBehaviour
                     dir.y = 0;
                 }
                 dir.Normalize();
+            } else if (dashCooldown >= dashLimit && !trigger){
+                dashBar.updateDash(true);
+                trigger = true;
             }
         }
     }

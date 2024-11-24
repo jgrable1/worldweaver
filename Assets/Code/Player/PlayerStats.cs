@@ -14,7 +14,6 @@ public class PlayerStats : MonoBehaviour
     private World world;
     void Start()
     {
-        // health = PlayerPrefs.GetInt("PlayerHP");
         playerStaminaBar.updateStat(stamina);
         playerHPBar.updateStat(health);
     }
@@ -32,15 +31,17 @@ public class PlayerStats : MonoBehaviour
         playerStaminaBar.updateStat(stamina);
     }
 
-    public void PlayerHPUpdate(int HP) {
-        if(!invincible || HP > 0){
-            health = health + HP;
+    public void PlayerHPUpdate(int change) {
+        if(!invincible || change > 0){
+            health = health + change;
+            if(health == 0){
+                UnityEditor.EditorApplication.isPlaying = false; // Quits out of the unity editor for test purposes.
+                Application.Quit(); // Quits the build when showing off final product.
+            }
             if(health > playerMaxHP)
                 health = playerMaxHP;
             playerHPBar.updateStat(health);
-            // PlayerPrefs.SetInt("PlayerHP", health);
-            // PlayerPrefs.Save();
-            if(HP < 0){
+            if(change < 0){
                 invincible = true;
                 StartCoroutine(IFrames());
             }

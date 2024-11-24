@@ -6,13 +6,12 @@ public class MeleeEnemyMove : MonoBehaviour
 {
     public int currHP;
     Rigidbody RigidbodyComponent;
-    public GameObject PlayerObject;
-    /*private void Awake(){
+    GameObject PlayerObject;
+    private void Awake(){
         RigidbodyComponent = GetComponent<Rigidbody>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
-    }*/
+    }
     private void Start(){
-        RigidbodyComponent = GetComponent<Rigidbody>();
         StartCoroutine(Chase());
     }
 

@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 6075928142813312554}
   - component: {fileID: 5927665920097460420}
   m_Layer: 5
-  m_Name: Stamina Tracker
+  m_Name: Stamina Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 1093238718221270002}
   - component: {fileID: 7277925272377847073}
   m_Layer: 5
-  m_Name: HP
+  m_Name: HP Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,7 +581,7 @@ GameObject:
   - component: {fileID: 85679632797565895}
   - component: {fileID: 650651985711341446}
   m_Layer: 5
-  m_Name: HP Tracker
+  m_Name: HP Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 2546252468274562072}
   - component: {fileID: 7691807220812440245}
   m_Layer: 5
-  m_Name: Stamina
+  m_Name: Stamina Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 3926355921352149164}
   - component: {fileID: 6614180265460574109}
   m_Layer: 5
-  m_Name: Dash Tracker
+  m_Name: Dash Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15471691, g: 0.121146254, b: 0.121146254, a: 1}
+  m_Color: {r: 0.5245282, g: 0.5245282, b: 0.5245282, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 2195553262701804867}
   - component: {fileID: 3023131957437526975}
   m_Layer: 5
-  m_Name: Active
+  m_Name: Dash Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

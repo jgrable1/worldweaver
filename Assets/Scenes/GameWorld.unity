@@ -393,6 +393,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
+--- !u!114 &1040596881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3023131957437526975, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+  m_PrefabInstance: {fileID: 1373269541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a69eef101bf6b845890fad3bf1a8aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1188508681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,6 +464,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1188508682}
+    - target: {fileID: 1210720210701417474, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
+      propertyPath: dashBar
+      value: 
+      objectReference: {fileID: 1040596881}
     - target: {fileID: 1840837683456120751, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
       propertyPath: world
       value: 

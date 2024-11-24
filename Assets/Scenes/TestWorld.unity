@@ -2916,16 +2916,32 @@ PrefabInstance:
       value: Overlay
       objectReference: {fileID: 0}
     - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 265
       objectReference: {fileID: 0}
     - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034023010512308790, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6614180265460574109, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
       propertyPath: m_text
-      value: Active
+      value: 'Dash: Active'
       objectReference: {fileID: 0}
     - target: {fileID: 7323419815805550251, guid: 3d715e26d5c51dc42b1ad4f638219e28, type: 3}
       propertyPath: m_Pivot.x

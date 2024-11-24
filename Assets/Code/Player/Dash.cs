@@ -12,6 +12,7 @@ public class Dash : MonoBehaviour
     float dashCooldown, dashLimit, dashSpeed;
     bool dashing = false;
     Vector3 dir;
+    public PlayerStatUI dashBar;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class Dash : MonoBehaviour
         if(dashing && dashCooldown >= 0.25f){
             dashing = false;
             world.RestrictMovement(false, "Dash");
+            dashBar.updateDash(true);
         }
 
 
@@ -38,6 +40,7 @@ public class Dash : MonoBehaviour
                 world.RestrictMovement(true, "Dash");
                 dashCooldown = 0f;
                 dashing = true;
+                dashBar.updateDash(false);
                 dir = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
                 dir.y = 0;
                 if(dir == Vector3.zero){

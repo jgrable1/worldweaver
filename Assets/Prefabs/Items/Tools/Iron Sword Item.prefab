@@ -129,5 +129,5 @@ MonoBehaviour:
   itemName: Iron Sword
   count: 1
   inventory: {fileID: 0}
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: cc96fc27f64547d48ae52c7a05a5581a, type: 3}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}

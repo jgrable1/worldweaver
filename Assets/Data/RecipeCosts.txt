@@ -9,3 +9,5 @@ Iron Axe; Iron Ingot03; Wood05
 Iron Pickaxe; Iron Ingot03; Wood05
 Iron Sword; Iron Ingot05; Wood01
 Unknown; ???
+Iron Ingot; Iron Ore01; Coal01
+Smelter; Stone10

@@ -548,7 +548,7 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Pickaxe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 7e47971c2faad584e95cadfb23f698aa, type: 3}
   spriteV: {fileID: 353089666569211286}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3712973794714202791}
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Sword
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: be69c804e14324247838ee085ceee928, type: 3}
   spriteV: {fileID: 7928985040561999868}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 6687029521841648078}
@@ -1694,6 +1694,81 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042495929295227188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1061335810441800784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7286798977190669248}
+  - component: {fileID: 5997577995059355955}
+  - component: {fileID: 7961029114729859304}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &7286798977190669248
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061335810441800784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1269581782934692815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5997577995059355955
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061335810441800784}
+  m_CullTransparentMesh: 1
+--- !u!114 &7961029114729859304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061335810441800784}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -2516,7 +2591,7 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Sword
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: cc96fc27f64547d48ae52c7a05a5581a, type: 3}
   spriteV: {fileID: 3958619163962951527}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 5040157892260241104}
@@ -3318,7 +3393,7 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Axe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: cd154dd7855b14045ab52af8cbe6f4ac, type: 3}
   spriteV: {fileID: 7337273216351473666}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 4002910361615011313}
@@ -3367,6 +3442,7 @@ RectTransform:
   - {fileID: 4221308742304338321}
   - {fileID: 6258313914979193502}
   - {fileID: 4183340786088181979}
+  - {fileID: 1269581782934692815}
   m_Father: {fileID: 1146873287652849130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -4482,7 +4558,7 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Pickaxe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: deb0ed863fdcfc1498f146a7108c68a8, type: 3}
   spriteV: {fileID: 2500588646784623793}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 80672549932343087}
@@ -6735,6 +6811,7 @@ MonoBehaviour:
   - {fileID: 7022373124298425987}
   - {fileID: 5253805353137353910}
   - {fileID: 3684511770881096642}
+  - {fileID: 8578895024479138943}
   selectedDescription: {fileID: 5517423991596507533}
   selectedName: {fileID: 6938685196376225339}
   errorDisplay: {fileID: 0}
@@ -7181,6 +7258,107 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5175191945642235810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269581782934692815}
+  - component: {fileID: 8752157147375991494}
+  - component: {fileID: 1868599237209091762}
+  - component: {fileID: 8578895024479138943}
+  m_Layer: 5
+  m_Name: RecipeSlot (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1269581782934692815
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175191945642235810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7286798977190669248}
+  - {fileID: 1433044519522024377}
+  m_Father: {fileID: 1213269675172058341}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -46}
+  m_SizeDelta: {x: 50, y: 46}
+  m_Pivot: {x: 1, y: 0}
+--- !u!222 &8752157147375991494
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175191945642235810}
+  m_CullTransparentMesh: 1
+--- !u!114 &1868599237209091762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175191945642235810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5698112, g: 0.5698112, b: 0.5698112, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8578895024479138943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175191945642235810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95594b7c8c6e62a4db74bb75d93a1c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: 0
+  itemName: Smelter
+  produceCount: 1
+  sprite: {fileID: 21300000, guid: a5f604d78513f96429e68c0481a0894d, type: 3}
+  spriteV: {fileID: 6249624543160462069}
+  action: {fileID: 11400000, guid: a3582aad2838d2841bad207887b481ef, type: 2}
+  highlight: {fileID: 1061335810441800784}
+  highlighted: 0
+  id: 0
+  locked: 1
+  remainingLocks: 0
 --- !u!1 &5191558404530551525
 GameObject:
   m_ObjectHideFlags: 0
@@ -7595,7 +7773,7 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Sword
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: f6f6b07cb02016f4385181b25ee2e116, type: 3}
   spriteV: {fileID: 1465641490930740553}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3636347757274499066}
@@ -7957,7 +8135,7 @@ MonoBehaviour:
   empty: 0
   itemName: Wooden Pickaxe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 2f8123636f23a974f86654c23e1831e0, type: 3}
   spriteV: {fileID: 1548963883503546456}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 5191558404530551525}
@@ -8416,7 +8594,7 @@ MonoBehaviour:
   empty: 0
   itemName: Iron Axe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 8cef95c589f926042b1abc567ae8ef19, type: 3}
   spriteV: {fileID: 752952265079929823}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 3652739081342118748}
@@ -9146,6 +9324,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &6979076034211766908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433044519522024377}
+  - component: {fileID: 7513270237584769423}
+  - component: {fileID: 6249624543160462069}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1433044519522024377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979076034211766908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1269581782934692815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 30, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7513270237584769423
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979076034211766908}
+  m_CullTransparentMesh: 1
+--- !u!114 &6249624543160462069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979076034211766908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6984181014890050538
 GameObject:
   m_ObjectHideFlags: 0
@@ -9586,7 +9839,7 @@ MonoBehaviour:
   empty: 0
   itemName: Stone Axe
   produceCount: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: 1c6878238a910f249b6103593d3261b0, type: 3}
   spriteV: {fileID: 5393763657584810645}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}
   highlight: {fileID: 8300106659183019280}

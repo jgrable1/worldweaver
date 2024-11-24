@@ -15,3 +15,4 @@ Coal; A chunk of carbon material to be used in a smelter to smelt Iron.
 Iron Ore; A chunk of rock with raw iron embedded within.\n\n Must have coal and be near a smelter to smelt ore.
 Iron Ingot; A slab of refined Iron. Ready to be shaped into tools.
 Unknown; Unknown recipe\n Find new items to discover new recipes!
+Smelter; Structure used to smelt iron ore into ingots.\n Requires empty space in front of player to build.

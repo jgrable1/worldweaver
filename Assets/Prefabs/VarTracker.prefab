@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6e90b666634ae4caec06513cb288e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSmelt: 0
+  canBuild: 0
   notificationText: {fileID: 0}
   instructions: {fileID: 0}
   player: {fileID: 0}
@@ -65,6 +67,7 @@ MonoBehaviour:
   - Iron Axe
   - Iron Pickaxe
   - Iron Sword
+  - Smelter
   prefabsList:
   - {fileID: 6754692286381045329, guid: 95ba6aac98593734da9364ff97a095f0, type: 3}
   - {fileID: 6982615961788063049, guid: 6333ca23daaaafd4cb578ca6c634658e, type: 3}
@@ -73,7 +76,7 @@ MonoBehaviour:
   - {fileID: 8159998453188417162, guid: 7829b9cd81416f6449a1ce6b075bc23d, type: 3}
   - {fileID: 6597299423670562612, guid: 695e73127db5f004298a8e72eebbb0e4, type: 3}
   - {fileID: 1478998845170193735, guid: 9cdff7c1fa16e4e4392ce2e6737f9890, type: 3}
-  - {fileID: 0}
+  - {fileID: 2777096310336647588, guid: e34683e71cf0dd54089a931da5fec154, type: 3}
   - {fileID: 6546152967665668587, guid: e3c9030747ee9d6459e827df5786aba4, type: 3}
   - {fileID: 3556338231774316240, guid: a503df337b5a8eb4d83fc5f0bb351dff, type: 3}
   - {fileID: 1366100163364289366, guid: af9cb4cff4c98504b84cdff7c77d5c27, type: 3}
@@ -83,4 +86,5 @@ MonoBehaviour:
   - {fileID: 5480873708550156789, guid: f5de6af461b59f7428227f7f2f5e41fe, type: 3}
   - {fileID: 1107292610991975285, guid: dc04ac826318fff42ae31ec2ee62fc3f, type: 3}
   - {fileID: 5403943829367893532, guid: cb7eb69dda1e298448bcacf0fee569ad, type: 3}
+  - {fileID: 5189724208710038586, guid: cf56f9a32d87f1e4393bb52595d395eb, type: 3}
   inventory: {fileID: 0}

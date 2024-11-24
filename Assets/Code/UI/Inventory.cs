@@ -42,7 +42,10 @@ public class Inventory : MonoBehaviour
     public void SetLocks(Dictionary<string, (string, int)[]> costs){
         foreach(KeyValuePair<string, (string, int)[]> entry in costs){
             // print(entry.Key+" has "+entry.Value.Length+" locks.");
-            recipes[recipeIDs[entry.Key]].remainingLocks = entry.Value.Length;
+            if(recipeIDs.ContainsKey(entry.Key)){
+                recipes[recipeIDs[entry.Key]].remainingLocks = entry.Value.Length;
+            }
+            
         }
     }
 
@@ -113,7 +116,10 @@ public class Inventory : MonoBehaviour
         world.QueueNotification("Unlocked recipe for "+recipes[recipeIDs[name]].GetName(), 2.0f);
         recipes[recipeIDs[name]].Unlock();
     }
-    public int RemainingLocks(string name) {return recipes[recipeIDs[name]].remainingLocks;}
+    public int RemainingLocks(string name) {
+        if(recipeIDs.ContainsKey(name)) return recipes[recipeIDs[name]].remainingLocks;
+        else return -1;
+    }
     public void RemoveLock (string name) {
         if(recipes[recipeIDs[name]].remainingLocks == 1) UnlockRecipe(name);
         recipes[recipeIDs[name]].remainingLocks--;
@@ -143,8 +149,9 @@ public class Inventory : MonoBehaviour
         selectedRecipe = recipe.id;
         selectedItem = -1;
         dropBtn.gameObject.SetActive(false);
-        useBtn.ChangeLabel("Craft");
-        if(!recipe.locked) useBtn.action = craftingAction;
+        useBtn.ChangeLabel(((recipe.GetAction().actionName == "Build" && !recipe.locked)?recipe.GetAction().actionName:"Craft"));
+        if(!recipe.locked) useBtn.action = ((recipe.GetAction().actionName == "Build")?recipe.GetAction():craftingAction);
+        else useBtn.action = null;
     }
 
     public string CostString((string, int)[] costs){

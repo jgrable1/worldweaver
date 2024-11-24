@@ -95,7 +95,7 @@ MonoBehaviour:
   itemName: Stone
   count: 1
   inventory: {fileID: 0}
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: b6a38a30aa2709744bea78c4b2e446a6, type: 3}
   action: {fileID: 0}
 --- !u!64 &5756666856295002997
 MeshCollider:

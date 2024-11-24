@@ -129,5 +129,5 @@ MonoBehaviour:
   itemName: Stone Sword
   count: 1
   inventory: {fileID: 0}
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  sprite: {fileID: 21300000, guid: f6f6b07cb02016f4385181b25ee2e116, type: 3}
   action: {fileID: 11400000, guid: b75ce90df57e3ee4fa487dedf5105a62, type: 2}

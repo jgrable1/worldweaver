@@ -7,6 +7,7 @@ using System.IO;
 public class World : MonoBehaviour
 {
     private bool canMove, canLook, notifUse, notifOpen, staminaUse, shownStaminaTip, playerTool;
+    public bool canSmelt, canBuild = false;
     private List<string> moveRestrictor, lookRestrictor;
     private List<(string, float)> notificationQueue;
     [SerializeField]

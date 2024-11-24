@@ -288,6 +288,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1188508682}
     - target: {fileID: 8867301396450413631, guid: c4c06615bc9af244181bc72d5fb563e6, type: 3}
+      propertyPath: canBuild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867301396450413631, guid: c4c06615bc9af244181bc72d5fb563e6, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1734369807}
@@ -465,10 +469,18 @@ PrefabInstance:
       propertyPath: playerStaminaBar
       value: 
       objectReference: {fileID: 1373269543}
+    - target: {fileID: 4719082317780460656, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 435185187}
     - target: {fileID: 4985102519296049965, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
       propertyPath: worldObject
       value: 
       objectReference: {fileID: 435185186}
+    - target: {fileID: 6974283318971980736, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 435185187}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -5,10 +5,26 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
-    void Update()
-    {
-        if(Input.GetKeyDown("o")){
-            Instantiate(enemy, this.transform.position, Quaternion.identity, null);
-        }
+    private bool first = true;
+
+    void OnTriggerEnter(Collider other){
+        if(other.tag == "Player" && first){
+            first = false;
+            Transform player = other.transform;
+            while(player.gameObject.name != "Player"){
+                player = player.transform.parent;
+            }
+            Vector3 position = this.transform.position;
+            position.x -= 2;
+            position.y = 1; 
+            Instantiate(enemy, position, Quaternion.identity, null);
+            position.x += 4;
+            Instantiate(enemy, position, Quaternion.identity, null);
+            position.x -= 2;
+            position.z += 2;
+            Instantiate(enemy, position, Quaternion.identity, null);
+            position.z -= 4;
+            Instantiate(enemy, position, Quaternion.identity, null);
+        } 
     }
 }

@@ -10,7 +10,6 @@ public class TrapTrigger : MonoBehaviour
             }
             PlayerStats script = player.GetComponent<PlayerStats>();
             script.PlayerHPUpdate(-1);
-        }
-        
+        } 
     }
 }

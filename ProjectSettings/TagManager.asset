@@ -9,6 +9,7 @@ TagManager:
   - Body
   - PlayerTool
   - Resource
+  - Sword
   layers:
   - Default
   - TransparentFX

@@ -42,8 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 236629113841351098}
   - component: {fileID: 8746597390136466371}
+  - component: {fileID: -4639101481351166941}
   - component: {fileID: 8837352456098846097}
-  - component: {fileID: 2615996107556348357}
+  - component: {fileID: 1254194324226215646}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -94,6 +95,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 2
+--- !u!135 &-4639101481351166941
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663655740545220860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8837352456098846097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725ca06125018f54eb32f710fae72f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2615996107556348357
+--- !u!114 &1254194324226215646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currHP: 5
-  PlayerObject: {fileID: 663655740545220860, guid: 1f2474a6ed71346489127c5bb8b21eaf, type: 3}
+  world: {fileID: 0}
 --- !u!1 &1012797810957159780
 GameObject:
   m_ObjectHideFlags: 0

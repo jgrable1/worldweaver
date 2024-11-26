@@ -6,7 +6,6 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
     private bool first = true;
-
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player" && first){
             first = false;
@@ -15,8 +14,8 @@ public class EnemySpawner : MonoBehaviour
                 player = player.transform.parent;
             }
             Vector3 position = this.transform.position;
+            position.y += 1;
             position.x -= 2;
-            position.y = 1; 
             Instantiate(enemy, position, Quaternion.identity, null);
             position.x += 4;
             Instantiate(enemy, position, Quaternion.identity, null);

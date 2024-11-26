@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MeleeEnemyMove : MonoBehaviour
 {
-    public int currHP, speed = 5;
+    private int currHP, speed;
+    private float chaseCooldown;
     private Vector3 v;
-    private bool onCooldown = false;
-    Rigidbody enemyBody;
-    GameObject PlayerObject;
+    private bool finalBoss, onHitCooldown = false;
+    private Rigidbody enemyBody;
+    private GameObject PlayerObject;
 
     private void Awake(){
         enemyBody = GetComponent<Rigidbody>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        finalBoss = this.transform.tag == "Final Boss";
+        speed = finalBoss? 10:5;
+        currHP = finalBoss? 21:5;
+        chaseCooldown = finalBoss? 1:0.2f;
         StartCoroutine(Chase());
     }
 
@@ -22,13 +27,13 @@ public class MeleeEnemyMove : MonoBehaviour
         else enemyBody.drag = speed/5;
         enemyBody.AddForce(v * 150, ForceMode.Acceleration);
         enemyBody.transform.rotation = Quaternion.LookRotation(v);
-        yield return new WaitForSeconds(0.2f); // Rechecks player position every 0.2 seconds.
+        yield return new WaitForSeconds(chaseCooldown); // Rechecks player position after every cooldown.
         StartCoroutine(Chase());
     }
 
     public void UpdateEnemyHealth(int HP){
-        if(Input.GetMouseButtonDown(0) && !onCooldown){
-            onCooldown = true;
+        if(Input.GetMouseButtonDown(0) && !onHitCooldown){
+            onHitCooldown = true;
             v = ((PlayerObject.transform.position - this.transform.position).normalized);
             v.y = -0.5f;
             enemyBody.AddForce(-v*500, ForceMode.Acceleration);
@@ -48,6 +53,6 @@ public class MeleeEnemyMove : MonoBehaviour
 
     IEnumerator IFrames(){
         yield return new WaitForSeconds(0.75f); // Cooldown damage of one second.
-        onCooldown = false;
+        onHitCooldown = false;
     }
 }

@@ -15,7 +15,7 @@ public class MeleeEnemyMove : MonoBehaviour
         enemyBody = GetComponent<Rigidbody>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
         finalBoss = this.transform.tag == "Final Boss";
-        speed = finalBoss? 10:5;
+        speed = finalBoss? 1000:300;
         currHP = finalBoss? 21:5;
         chaseCooldown = finalBoss? 1:0.2f;
         StartCoroutine(Chase());
@@ -23,9 +23,10 @@ public class MeleeEnemyMove : MonoBehaviour
 
     IEnumerator Chase(){
         v = ((PlayerObject.transform.position - this.transform.position).normalized);
-        if(v.y <= 0) enemyBody.drag = speed;
-        else enemyBody.drag = speed/5;
-        enemyBody.AddForce(v * 150, ForceMode.Acceleration);
+        if(this.transform.position.y > 1) enemyBody.drag = 5;
+        else enemyBody.drag = 5;
+        v.y = 0;
+        enemyBody.AddForce(v*speed, ForceMode.Acceleration);
         enemyBody.transform.rotation = Quaternion.LookRotation(v);
         yield return new WaitForSeconds(chaseCooldown); // Rechecks player position after every cooldown.
         StartCoroutine(Chase());

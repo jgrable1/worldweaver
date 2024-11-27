@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -35,8 +36,7 @@ public class PlayerStats : MonoBehaviour
         if(!invincible || change > 0){
             health = health + change;
             if(health == 0){
-                UnityEditor.EditorApplication.isPlaying = false; // Quits out of the unity editor for test purposes.
-                Application.Quit(); // Quits the build when showing off final product.
+                SceneManager.LoadScene("LoseScreen");
             }
             if(health > playerMaxHP)
                 health = playerMaxHP;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MeleeEnemyMove : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class MeleeEnemyMove : MonoBehaviour
         }
         if(currHP <= 0){
             Destroy(gameObject);
+            if(finalBoss){
+                SceneManager.LoadScene("WinScreen");
+            }
         }
     }
 

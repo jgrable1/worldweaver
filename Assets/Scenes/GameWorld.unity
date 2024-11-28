@@ -1813,9 +1813,6 @@ GameObject:
   - component: {fileID: 1605710616}
   - component: {fileID: 1605710615}
   - component: {fileID: 1605710621}
-  - component: {fileID: 1605710620}
-  - component: {fileID: 1605710619}
-  - component: {fileID: 1605710618}
   m_Layer: 8
   m_Name: World Base
   m_TagString: Untagged
@@ -1898,51 +1895,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1605710618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605710614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887d6ed5349f4e1428ed296a23b87bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToCreate: {fileID: 4254908748250737812, guid: b83c3317e3b34574ba8ac8519b80ea6e, type: 3}
-  seed: 4
-  numToPlace: 10
---- !u!114 &1605710619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605710614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887d6ed5349f4e1428ed296a23b87bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToCreate: {fileID: 272414798892000621, guid: b0b8633f78945114bb0d554ae3cb37f8, type: 3}
-  seed: 3
-  numToPlace: 50
---- !u!114 &1605710620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605710614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 887d6ed5349f4e1428ed296a23b87bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToCreate: {fileID: 2785191933444726138, guid: 3f6408d6c435f8143be3bb4fce89274c, type: 3}
-  seed: 2
-  numToPlace: 200
 --- !u!114 &1605710621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,14 +2386,14 @@ SceneRoots:
   - {fileID: 1188508681}
   - {fileID: 1029184061}
   - {fileID: 599130714}
+  - {fileID: 818359566}
   - {fileID: 1004727005}
+  - {fileID: 1541061736}
+  - {fileID: 1713088184}
   - {fileID: 851713750}
   - {fileID: 98940726}
   - {fileID: 189952968}
-  - {fileID: 818359566}
   - {fileID: 1512945523}
-  - {fileID: 1541061736}
-  - {fileID: 1713088184}
   - {fileID: 617204025}
   - {fileID: 927385110}
   - {fileID: 1693131513}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class MeleeEnemyMove : MonoBehaviour
@@ -11,26 +12,20 @@ public class MeleeEnemyMove : MonoBehaviour
     private bool finalBoss, onHitCooldown = false;
     private Rigidbody enemyBody;
     private GameObject PlayerObject;
+    private NavMeshAgent agent;
 
     private void Awake(){
         enemyBody = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
         finalBoss = this.transform.tag == "Final Boss";
         speed = finalBoss? 1000:300;
         currHP = finalBoss? 21:5;
         chaseCooldown = finalBoss? 1:0.2f;
-        StartCoroutine(Chase());
     }
 
-    IEnumerator Chase(){
-        v = ((PlayerObject.transform.position - this.transform.position).normalized);
-        if(this.transform.position.y > 1) enemyBody.drag = 5;
-        else enemyBody.drag = 5;
-        v.y = 0;
-        enemyBody.AddForce(v*speed, ForceMode.Acceleration);
-        enemyBody.transform.rotation = Quaternion.LookRotation(v);
-        yield return new WaitForSeconds(chaseCooldown); // Rechecks player position after every cooldown.
-        StartCoroutine(Chase());
+    void Update(){
+        agent.destination = PlayerObject.transform.position;
     }
 
     public void UpdateEnemyHealth(int HP){

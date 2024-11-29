@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -9,24 +9,28 @@ public class TemplateNPC : MonoBehaviour
     protected string[] dialogue;
     protected TextMeshPro tmp;
     protected int interactStage = 0;
-    protected bool interactable = false;
+    protected bool interactable = false, npcTurn, textTurn;
     protected int walkSpeed = 2;
     protected float walkWait = 1f;
     private float walkTimer = 0f;
     private bool walking = false;
     // WalkBounds: [x1, x2, z1, z2] x1 < x2, z1 < z2
     protected float[] walkBounds;
+    protected System.Action[] methods;
     private Vector3 randomMove;
     [SerializeField]
-    private GameObject player;
+    protected GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        tmp = GetComponentInChildren<TextMeshPro>();
+        npcTurn = true;
+        textTurn = true;
+        tmp = GetComponentInChildren<TextMeshPro>(); 
     }
 
-    void DisplayDialogue(string s, bool cont){
-        tmp.text = s+(cont?"\n\n Press E to Continue":"");
+    void DisplayDialogue(string s, bool cont, System.Action method){
+        tmp.text = s+(cont?"\n Press E to Continue":"");
+        if(method != null) method();
     }
 
     // Update is called once per frame
@@ -43,24 +47,24 @@ public class TemplateNPC : MonoBehaviour
             walkTimer+=Time.deltaTime;
             //Vector3 playerDir = player.transform.position-transform.position;
             //playerDir.y = 0;
-            tmp.transform.rotation = Quaternion.LookRotation(playerDir);
+            if(textTurn) tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
 
         if (Input.GetButtonDown("Interact") && interactable){
             interactStage++;
             if(interactStage >= dialogue.Length) interactStage = 0;
-            DisplayDialogue(dialogue[interactStage], interactStage != 0);
+            DisplayDialogue(dialogue[interactStage], interactStage != 0, (methods != null?methods[interactStage]:null));
             Vector3 tempPlayerDir = playerDir;
             tempPlayerDir.y = 0;
-            transform.rotation = Quaternion.LookRotation(tempPlayerDir);
-            tmp.transform.rotation = Quaternion.LookRotation(playerDir);
+            if(npcTurn) transform.rotation = Quaternion.LookRotation(tempPlayerDir);
+            if(textTurn) tmp.transform.rotation = Quaternion.LookRotation(playerDir);
         }
 
-        if(walkTimer >= walkWait){
+        if(walkTimer >= walkWait && walkBounds != null){
             walking = !walking;
             walkTimer = 0;
             if(walking){
-                randomMove = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized;
+                randomMove = new Vector3(UnityEngine.Random.Range(-1, 1), 0, UnityEngine.Random.Range(-1, 1)).normalized;
                 randomMove*=walkSpeed;
                 
                 float clampX = Mathf.Clamp(transform.position.x+randomMove.x, walkBounds[0], walkBounds[1]);
@@ -81,7 +85,7 @@ public class TemplateNPC : MonoBehaviour
                     else randomMove.z = transform.position.z-walkBounds[3];
                 }
 
-                transform.rotation = Quaternion.LookRotation(randomMove);
+                if(npcTurn) transform.rotation = Quaternion.LookRotation(randomMove);
             }
         }
     }
@@ -89,7 +93,7 @@ public class TemplateNPC : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         //print("onTriggerEnter called");
         interactable = true;
-        if(interactStage == 0) DisplayDialogue(dialogue[interactStage], interactStage != 0);
+        if(interactStage == 0) DisplayDialogue(dialogue[interactStage], interactStage != 0, (methods != null?methods[interactStage]:null));
     }
     void OnTriggerExit(Collider other){
         interactable = false;

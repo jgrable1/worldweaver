@@ -36,7 +36,6 @@ public class TemplateNPC : MonoBehaviour
     // Update is called once per frame
     void Update(){
         if(player == null){
-            print("Trying again to find Player");
             player = GameObject.FindWithTag("Player");
         }
         Vector3 playerDir = transform.position-player.transform.position;

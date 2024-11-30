@@ -3195,6 +3195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tree: {fileID: 653940092149116754, guid: 98a95c758469dfa469687bcaa2798d3f, type: 3}
+  Wood: {fileID: 0}
 --- !u!1001 &1659337552
 PrefabInstance:
   m_ObjectHideFlags: 0

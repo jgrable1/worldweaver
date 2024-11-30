@@ -658,6 +658,7 @@ GameObject:
   - component: {fileID: 5344283127610050311}
   - component: {fileID: 8332388236921888112}
   - component: {fileID: 744750474175893606}
+  - component: {fileID: 1885872358913808212}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Final Boss
@@ -758,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a39c0aff29c2345b93b857d9d6e442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
 --- !u!195 &744750474175893606
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -780,6 +782,25 @@ NavMeshAgent:
   m_BaseOffset: 0.75
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1885872358913808212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986480878614729680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &4281983784616657238
 GameObject:
   m_ObjectHideFlags: 0

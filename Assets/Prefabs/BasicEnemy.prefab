@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8837352456098846097}
   - component: {fileID: 1254194324226215646}
   - component: {fileID: 3150401934065063669}
+  - component: {fileID: 6756626945358260556}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -141,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a39c0aff29c2345b93b857d9d6e442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
 --- !u!195 &3150401934065063669
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -163,6 +165,25 @@ NavMeshAgent:
   m_BaseOffset: 0.72
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6756626945358260556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663655740545220860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1012797810957159780
 GameObject:
   m_ObjectHideFlags: 0

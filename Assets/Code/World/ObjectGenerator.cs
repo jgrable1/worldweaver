@@ -33,6 +33,8 @@ public class ObjectGenerator : MonoBehaviour
             prefabTree.transform.localScale = new Vector3(terrainTree.widthScale, terrainTree.heightScale, terrainTree.widthScale);
             prefabTree.transform.rotation = Quaternion.AngleAxis(terrainTree.rotation, Vector3.up);
         }
+
+        // Delete the current list of treeInstances, that way they don't overlap with the newly created objects
         thisTerrain.treeInstances = new TreeInstance[0];
     }
 
@@ -40,6 +42,7 @@ public class ObjectGenerator : MonoBehaviour
         RestoreTrees();
     }
 
+    // restores the TerrainData's 
     public void RestoreTrees() {
         thisTerrain.treeInstances = originalTrees;
     }

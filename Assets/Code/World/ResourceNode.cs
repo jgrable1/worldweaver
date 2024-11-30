@@ -63,6 +63,15 @@ public class ResourceNode : MonoBehaviour
         return result;
     }
 
+    public void SetResource(BasicItem newResource) {
+        resource = newResource;
+    }
+
+    public void SetWorld(World newWorld)
+    {
+        world = newWorld;
+    }
+
     IEnumerator HarvestWaiter() {yield return new WaitForSeconds(0.75f); canHarvest = true;}
     IEnumerator NotifWaiter() {yield return new WaitForSeconds(5f); weakToolNotif = true;}
 

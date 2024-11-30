@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectGenerator : MonoBehaviour
 {
     public GameObject Tree;
+    public GameObject Wood;
     TerrainData thisTerrain;
     TreeInstance[] originalTrees;
     void Start()

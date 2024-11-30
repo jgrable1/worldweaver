@@ -37,6 +37,10 @@ public class ObjectGenerator : MonoBehaviour
     }
 
     void OnApplicationQuit() {
+        RestoreTrees();
+    }
+
+    public void RestoreTrees() {
         thisTerrain.treeInstances = originalTrees;
     }
 }

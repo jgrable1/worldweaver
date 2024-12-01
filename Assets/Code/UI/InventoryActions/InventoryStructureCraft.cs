@@ -20,7 +20,7 @@ public class InventoryStructureCraft : InventoryAction
             BasicItem item = world.GetPrefab(outputName).GetComponent<BasicItem>();
             inventory.AddItem(outputName, outputCount, item.GetSprite(), item.action);
         } else {
-            Debug.Log("Crafting failed! Displaying error");
+            // Debug.Log("Crafting failed! Displaying error");
             string error;
             if(!inventory.GetWorld().canSmelt) error = "You are not at the required structure to craft "+outputName+"!";
             else error = "You do not have the required materials to craft "+outputName+"!";

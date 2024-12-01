@@ -44,7 +44,7 @@ public class Dash : MonoBehaviour
                 dir = transform.right*Input.GetAxis("Horizontal") + transform.forward*Input.GetAxis("Vertical");
                 dir.y = 0;
                 if(dir == Vector3.zero){
-                    print("No direction, assigning facing direction.");
+                    // print("No direction, assigning facing direction.");
                     dir = transform.forward;
                     dir.y = 0;
                 }

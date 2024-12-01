@@ -16,9 +16,12 @@ public class InventoryBuild : InventoryAction
             foreach((string name, int count) in inventory.GetWorld().GetCosts(outputName)){
                 inventory.ConsumeItem(name, count);
             }
-            Vector3 modifiedPosition = world.GetPlayer().transform.position;
+            BasicMovement player = world.GetPlayer();
+            Vector3 modifiedPosition = player.transform.position;
+            Vector3 tempForward = player.transform.forward;
+            tempForward.y = 0;
             modifiedPosition.y -= 0.75f;
-            modifiedPosition.z += 1f;
+            modifiedPosition += tempForward;
             Structure structure = Instantiate(world.GetPrefab(outputName), modifiedPosition, Quaternion.identity).GetComponent<Structure>();
             structure.Setup(inventory);
         } else {

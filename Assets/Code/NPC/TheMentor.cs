@@ -24,12 +24,14 @@ public class TheMentor : TemplateNPC
             "Then make a pickaxe out of wood and start mining the nodes you see in the area.",
             "Eventually you'll use these resources to craft a sword to fight them with.",
             "Stone you'll find in nodes mostly at the base of mountains and hills.",
-            "Iron and coal however are found much higher up, in the tallest mountains.",
+            "Iron and coal however are mostly found much higher up, in the tallest mountains.",
             "And before you ask, I tried hitting them with the axe. It didn't work, not sure why.",
+            "Oh and also, some of the other villagers have provided some of their lifeforce.",
+            "They manifest as white spheres spread throughout the village, they can heal you.",
             "Anyways, good luck."
         };
 
-        methods = new System.Action[11];
+        methods = new System.Action[13];
         methods[4] = WoodAxeCheck;
     }
 

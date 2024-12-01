@@ -32,12 +32,12 @@ public class ObjectGenerator : MonoBehaviour
 
             //Then set the new tree to the randomized size and rotation of the terrain tree
             prefabTree.transform.localScale = new Vector3(terrainTree.widthScale, terrainTree.heightScale, terrainTree.widthScale);
-            prefabTree.transform.rotation = Quaternion.AngleAxis(terrainTree.rotation, Vector3.up);
+            prefabTree.transform.rotation = Quaternion.AngleAxis(terrainTree.rotation + 90, Vector3.up);
             prefabTree.GetComponent<ResourceNode>().SetWorld(World);
         }
 
         // Delete the current list of treeInstances, that way they don't overlap with the newly created objects
-        thisTerrain.treeInstances = new TreeInstance[0];
+        // thisTerrain.treeInstances = new TreeInstance[0];
     }
 
     void OnApplicationQuit() {

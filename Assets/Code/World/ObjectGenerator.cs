@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectGenerator : MonoBehaviour
 {
     public GameObject Tree;
-    public BasicItem Wood;
     public World World;
     TerrainData thisTerrain;
     TreeInstance[] originalTrees;
@@ -34,7 +33,6 @@ public class ObjectGenerator : MonoBehaviour
             //Then set the new tree to the randomized size and rotation of the terrain tree
             prefabTree.transform.localScale = new Vector3(terrainTree.widthScale, terrainTree.heightScale, terrainTree.widthScale);
             prefabTree.transform.rotation = Quaternion.AngleAxis(terrainTree.rotation, Vector3.up);
-            prefabTree.GetComponent<ResourceNode>().SetResource(Wood);
             prefabTree.GetComponent<ResourceNode>().SetWorld(World);
         }
 

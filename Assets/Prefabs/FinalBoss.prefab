@@ -759,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a39c0aff29c2345b93b857d9d6e442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  surface: {fileID: 0}
 --- !u!195 &744750474175893606
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -768,7 +767,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3986480878614729680}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -334000983
   m_Radius: 0.32
   m_Speed: 3.5
   m_Acceleration: 8

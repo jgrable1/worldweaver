@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestWorld.unity
-    guid: bf46d71275752cf41a3d66053b2a0407
+    path: Assets/Scenes/GameWorld.unity
+    guid: fcf095bb7a88f6f46ace1f3e880f5eae
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: 67169ca10eb5d3b428e3bf2653fb0870

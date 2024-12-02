@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,8 +43,8 @@ public class World : MonoBehaviour
         moveRestrictor = new List<string>();
         lookRestrictor = new List<string>();
         notificationQueue = new List<(string, float)>();
-        ReadItemData("Assets/Data/ItemData.txt", true);
-        ReadItemData("Assets/Data/RecipeCosts.txt", false);
+        ReadItemData("ItemData", true);
+        ReadItemData("RecipeCosts", false);
         inventory.SetLocks(costs);
         for(int i = 0; i < prefabNames.Length; i++){
             prefabs.Add(prefabNames[i], prefabsList[i]);
@@ -186,24 +187,25 @@ public class World : MonoBehaviour
 
     private void ReadItemData(string fileName, bool descriptions){
         try{
-            StreamReader reader = new StreamReader(fileName);
-            string line;
-            line = reader.ReadLine();
+            TextAsset textFile = (TextAsset) Resources.Load(fileName);
+            string assetContents = textFile.text;
+            string[] lines = Regex.Split(assetContents, "\n|\r|\r\n" );
 
             if(descriptions){
                 string itemName, description;
-                while (line != null){
+                foreach (string line in lines){
+                    if(line.Length == 0) continue;
                     itemName = line.Substring(0, line.IndexOf(";"));
                     description = line.Substring(line.IndexOf(";")+2);
                     // print("Looking for \\n in string");
                     description = description.Replace("\\n", "\n");
                     this.descriptions.Add(itemName, description);
-                    line = reader.ReadLine();
                 }
             } else{
                 string itemName, remainder, curr;
                 List<(string, int)> list = new List<(string, int)>();
-                while (line != null){
+                foreach (string line in lines){
+                    if(line.Length == 0) continue;
                     itemName = line.Substring(0, line.IndexOf(";"));
                     remainder = line.Substring(line.IndexOf(";")+2);
                     if(itemName != "Unknown"){
@@ -221,7 +223,6 @@ public class World : MonoBehaviour
                         costs.Add(itemName, list.ToArray());
                         list.Clear();
                     }
-                    line = reader.ReadLine();
                 }
             }
             

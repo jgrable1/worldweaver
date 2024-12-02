@@ -7,7 +7,6 @@ public class Quit : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
     }

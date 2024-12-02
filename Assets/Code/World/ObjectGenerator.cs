@@ -35,17 +35,5 @@ public class ObjectGenerator : MonoBehaviour
             prefabTree.transform.rotation = Quaternion.AngleAxis(terrainTree.rotation + 90, Vector3.up);
             prefabTree.GetComponent<ResourceNode>().SetWorld(World);
         }
-
-        // Delete the current list of treeInstances, that way they don't overlap with the newly created objects
-        // thisTerrain.treeInstances = new TreeInstance[0];
-    }
-
-    void OnApplicationQuit() {
-        RestoreTrees();
-    }
-
-    // restores the TerrainData's 
-    public void RestoreTrees() {
-        thisTerrain.treeInstances = originalTrees;
     }
 }

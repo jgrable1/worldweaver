@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MeleeEnemyMove : MonoBehaviour
 {
-    private int currHP, speed;
-    private float chaseCooldown;
+    private int currHP;
     private Vector3 v;
     private bool finalBoss, onHitCooldown = false;
     private Rigidbody enemyBody;
@@ -19,9 +18,7 @@ public class MeleeEnemyMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
         finalBoss = this.transform.tag == "Final Boss";
-        speed = finalBoss? 1000:300;
         currHP = finalBoss? 21:5;
-        chaseCooldown = finalBoss? 1:0.2f;
     }
 
     void Update(){

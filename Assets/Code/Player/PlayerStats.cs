@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public int health;
     public float stamina;
     public PlayerStatUI playerHPBar, playerStaminaBar;
-    private int playerMaxHP = 10; // HP of the player
+    private int playerMaxHP = 10;
     private float playerMaxStamina = 10.0f;
     [SerializeField]
     private World world;

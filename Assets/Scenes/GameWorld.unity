@@ -956,18 +956,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -114.99902
       objectReference: {fileID: 0}
+    - target: {fileID: 1826779382725284144, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
+      propertyPath: m_CellSize.x
+      value: 69.872284
+      objectReference: {fileID: 0}
     - target: {fileID: 2202308308411921485, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -115.49902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737640379092339471, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737640379092339471, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4698696447411314863, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
       propertyPath: m_Name
       value: InventoryManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6743254385334275056, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
-      propertyPath: action
-      value: 
-      objectReference: {fileID: 11400000, guid: 718bbd3881b14f94eba21d1ed6819ef4, type: 2}
+    - target: {fileID: 8428030785257048809, guid: 1b8aaa2774353b3428c14811a010c50b, type: 3}
+      propertyPath: m_CellSize.x
+      value: 112.99565
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -12,7 +12,7 @@ public class InventoryBuild : InventoryAction
 
    public override void InventoryAct(Inventory inventory){
         World world = inventory.GetWorld();
-        if(CanCraft(inventory, world.GetCosts(outputName))){
+        if(CanCraft(inventory, world.GetCosts(outputName)) && world.GetPlayer().IsGrounded()){
             foreach((string name, int count) in inventory.GetWorld().GetCosts(outputName)){
                 inventory.ConsumeItem(name, count);
             }
@@ -27,7 +27,8 @@ public class InventoryBuild : InventoryAction
         } else {
             // Debug.Log("Crafting failed! Displaying error");
             string error;
-            if(!inventory.GetWorld().canBuild) error = "Make space in front of you to place a "+outputName+"!";
+            if(!world.canBuild) error = "Make space in front of you to place a "+outputName+"!";
+            else if(!world.GetPlayer().IsGrounded()) error = "You must be on the ground to place a "+outputName+"!";
             else error = "You do not have the required materials to build "+outputName+"!";
             inventory.DisplayError(error);
         }

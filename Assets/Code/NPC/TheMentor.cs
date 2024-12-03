@@ -19,7 +19,7 @@ public class TheMentor : TemplateNPC
             "Talk (E)",
             "Greetings, I'll keep this brief as time is limited.",
             "Far off to my left, over the big green hill, there lies an encampment.",
-            "That encampment houses the evil red goblins. You must stop them.",
+            "That encampment houses the evil goblins. You must stop them.",
             "Take this wooden axe, get started by chopping down trees.",
             "Then make a pickaxe out of wood and start mining the nodes you see in the area.",
             "Eventually you'll use these resources to craft a sword to fight them with.",
